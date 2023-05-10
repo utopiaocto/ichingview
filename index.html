@@ -27,7 +27,7 @@
 
         #name {
             font-size: 20px;
-            width: 80%;
+            width: 70%;
         }
 
         button {
@@ -1195,21 +1195,18 @@
             document.querySelector('#output').innerHTML = '당신이 궁금해 하는 운세는?<br>' + korean_value0 + ' 괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
             document.querySelector('#fortune').innerHTML =
-                '♣ 운명코드 = ' + binary_value + '<br>' +
+                '♣ 현재의 주역코드 = ' + binary_value + '<br>' +
                 '---------------------<br>' +
                 '<br>' +
-                '♣ 주역괘 해석 ♣<br>' +
-                '<br>' +
-                text-align: center;
-                font-family: 'Alegreya', serif;
-                korean_value + '<br><br>' +
+                '♣ 주역괘기반 운세 해석 ♣<br>' +
+                '<div class="left-align">' + /* Add class to the div to align text to the left */
+                korean_value + '</div><br><br><br>' +
+                '<div class="centor-align">' + /* Add class to the div to align text to the left */
                 '---------------------<br><br>' +
-
                 '본 프로그램, 사진, 저작물은 옥토의 소유입니다. 허락없이 사용시 법적처벌됩니다.<br>';
             document.querySelector('.result').style.display = 'block';
             document.querySelector('.result').classList.add('result');
         }
-
 
     </script>
 </body>
