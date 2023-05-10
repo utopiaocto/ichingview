@@ -46,6 +46,11 @@
         }
 
     </style>
+    <style>
+    .center-align {
+        text-align: center;
+    }
+    </style>
     
 </head>
     
@@ -1189,8 +1194,8 @@
         function showFortune() {
             const name = document.querySelector('#name').value;
             const binary_value = generateRandomBinaryValue();
-            const korean_value0 = korean_values0[binary_value];
-            const korean_value = korean_values[binary_value];
+            const korean_value0 = isNaN(korean_values0[binary_value]) ? "" : korean_values0[binary_value]; // Check if value is NaN
+            const korean_value = isNaN(korean_values[binary_value]) ? "" : korean_values[binary_value]; // Check if value is NaN
 
             document.querySelector('#output').innerHTML = '당신이 궁금해 하는 운세는?<br>' + korean_value0 + ' 괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
@@ -1201,9 +1206,9 @@
                 '♣ 주역괘기반 현재운 해석 ♣<br>' +
                 '<div class="left-align">' + /* Add class to the div to align text to the left */
                 korean_value + '</div><br><br><br>' +
-                '<div class="centor-align">' + /* Add class to the div to align text to the left */
+                '<div class="center-align">' + /* Add class to the div to align text to the center */
                 '---------------------<br><br>' +
-                '본 프로그램, 사진, 저작물은 옥토의 소유입니다. 허락없이 사용시 법적처벌됩니다.<br>';
+                '본 프로그램, 사진, 저작물은 옥토의 소유입니다. 허락없이 사용시 법적처벌됩니다.<br></div>';
             document.querySelector('.result').style.display = 'block';
             document.querySelector('.result').classList.add('result');
         }
