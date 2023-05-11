@@ -1205,17 +1205,17 @@
                 const korean_value0 = korean_values0[binary_value];
                 const korean_value = korean_values[binary_value];
 
-                document.querySelector('#output').innerHTML = '☯︎ 당신의 간절함에 대한 괘상은 ☯︎<br>' + korean_value0 + ' 괘 입니다. ☯︎';
+                document.querySelector('#output').innerHTML = '☯︎ 간절함에 대한 대답은? ☯︎<br>' + korean_value0 + ' 괘 입니다.';
                 document.querySelector('#image').src = getImageUrl(binary_value);
                 document.querySelector('#fortune').innerHTML =
-                '☯︎ 현재의 주역 분석코드 = ' + binary_value + '<br>' +
+                '☯︎ 현재의 주역 분석코드 = ' + binary_value + '☯︎ <br>' +
                 '---------------------<br>' +
                 '<br>' +
                 '☯︎ 주역괘기반 현재상황 해석 ☯︎<br>' +
                 '<div class="left-align">' + /* Add class to the div to align text to the left */
                 korean_value + '</div><br><br><br>' +
 //                '<div class="center-align">' + /* Add class to the div to align text to the center */
-                '---------------------<br><br>' +
+                '---------------------<br><br><br>' +
                 '본 프로그램, 사진, 저작물은 옥토의 소유입니다. 허락없이 사용시 법적처벌됩니다.<br></div>';
                 document.querySelector('.result').style.display = 'block';
                 document.querySelector('.result').classList.add('result');
