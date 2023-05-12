@@ -24,6 +24,7 @@
             border: 2px solid #ddd;
             border-radius: 5px;
             margin-top: 15px;
+            color: black;  // Add this line to set the text color to black
             width: 90%; /* Set width to 90% */
             margin-left: auto;
             margin-right: auto;
@@ -1217,9 +1218,9 @@
         function showFortune() {
             const name = document.querySelector('#name').value;
             const binary_value = generateRandomBinaryValue();
-            const korean_value0 = korean_values0[binary_value];
-            const korean_value = korean_values[binary_value];
-
+            const korean_value0 = korean_values0[binary_value] || "";  // Add empty string as a fallback
+            const korean_value = korean_values[binary_value] || "";  // Add empty string as a fallback
+            
             document.querySelector('#output').innerHTML = '☯︎ 간절함에 대한 대답은? ☯︎<br>' + korean_value0 + ' 괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
             document.querySelector('#fortune').innerHTML =
