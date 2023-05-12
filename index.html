@@ -159,7 +159,13 @@
                 '010101': '63 수화기제',
                 '101010': '64 화수미제',
         };
+        let transformed_korean_values0 = {};
 
+        for (let key in korean_values0) {
+            transformed_korean_values0[key] = korean_values0[key].split(' ')[0];
+        }
+
+        console.log(transformed_korean_values0);
         const korean_values = {
                   //건부
                   '111111': (
@@ -1223,7 +1229,7 @@
             const binary_value = generateRandomBinaryValue();
 
             // if binary_value is not defined in the korean_values0 or korean_values, set a default value
-            const korean_value0 = korean_values0[binary_value] || "미정의 값";
+            const korean_value0 = transformed_korean_values0[binary_value] || "미정의 값";
             const korean_value = korean_values[binary_value] || "미정의 값";
 
             document.querySelector('#output').innerHTML = '☯︎ 간절함에 대한 대답은? ☯︎<br>' + korean_value0 + ' 괘 입니다.';
