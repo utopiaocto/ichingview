@@ -1214,27 +1214,26 @@
             const second_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
             return first_digit + second_digit;
         }
-            function showFortune() {
-                const name = document.querySelector('#name').value;
-                const binary_value = generateRandomBinaryValue();
-                const korean_value0 = korean_values0[binary_value];
-                const korean_value = korean_values[binary_value];
+        function showFortune() {
+            const name = document.querySelector('#name').value;
+            const binary_value = generateRandomBinaryValue();
+            const korean_value0 = korean_values0[binary_value];
+            const korean_value = korean_values[binary_value];
 
-                document.querySelector('#output').innerHTML = '☯︎ 간절함에 대한 대답은? ☯︎<br>' + korean_value0 + ' 괘 입니다.';
-                document.querySelector('#image').src = getImageUrl(binary_value);
-                document.querySelector('#fortune').innerHTML =
-                '☯︎ 현재의 주역 분석코드 = ' + binary_value + '☯︎ <br>' +
-                '---------------------<br>' +
-                '<br>' +
-                '☯︎ 주역괘기반 현재상황 해석 ☯︎<br><br>' +
-                '<div class="left-align">' + /* Add class to the div to align text to the left */
-                korean_value + '</div><br><br><br>' +
-//                '<div class="center-align">' + /* Add class to the div to align text to the center */
-                '---------------------<br><br><br>' +
-                '본 프로그램, 사진, 저작물은 옥토의 소유입니다. 허락없이 사용시 법적처벌됩니다.<br></div>';
-                document.querySelector('.result').style.display = 'block';
-                document.querySelector('.result').classList.add('result');
-            }
+            document.querySelector('#output').innerHTML = '☯︎ 간절함에 대한 대답은? ☯︎<br>' + korean_value0 + ' 괘 입니다.';
+            document.querySelector('#image').src = getImageUrl(binary_value);
+            document.querySelector('#fortune').innerHTML =
+            '☯︎ 현재의 주역 분석코드 = ' + binary_value + '☯︎ <br>' +
+            '---------------------<br>' +
+            '<br>' +
+            '☯︎ 주역괘기반 현재상황 해석 ☯︎<br><br>' +
+            '<div style="text-align: left; color: white; background-color: black;">' + /* Set text alignment to left, text color to white and background color to black */
+            korean_value + '</div><br><br><br>' +
+            '---------------------<br><br>' +
+            '본 프로그램, 사진, 저작물은 옥토의 소유입니다. 허락없이 사용시 법적처벌됩니다.<br></div>';
+            document.querySelector('.result').style.display = 'block';
+            document.querySelector('.result').classList.add('result');
+        }
 
     </script>
 </body>
