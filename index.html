@@ -1229,16 +1229,17 @@
             const binary_value = generateRandomBinaryValue();
 
             // if binary_value is not defined in the korean_values0 or korean_values, set a default value
-            const korean_value0 = transformed_korean_values0[binary_value] || "미정의 값";
+            const korean_value0 = korean_values0[binary_value] || "미정의 값";
+            const korean_value1 = transformed_korean_values0[binary_value] || "미정의 값";
             const korean_value = korean_values[binary_value] || "미정의 값";
 
-            document.querySelector('#output').innerHTML = '☯︎ 간절함에 대한 대답은? ☯︎<br>' + korean_value0 + ' 괘 입니다.';
+            document.querySelector('#output').innerHTML = '☯︎ 간절함에 대한 대답은? ☯︎<br>' + korean_value0 + ' 괘 입니다. (' + korean_value1 + ')';
             document.querySelector('#image').src = getImageUrl(binary_value);
 
             // Split korean_value into two parts
             const korean_value_parts = korean_value.split("[자세한 운세] <br><br>");
             const korean_value_overall = korean_value_parts[0];
-            const korean_value_detailed = korean_value_parts[1];
+            const korean_value_detailed = korean_value_parts[1] || "자세한 운세가 없습니다.";
 
             document.querySelector('#fortune').innerHTML =
             '<span style="font-size: 20px; font-weight: bold; color: yellow;">☯︎ 현재의 주역 분석코드 = ' + binary_value + '</span><br>' +
