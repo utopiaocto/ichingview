@@ -1233,24 +1233,23 @@
             const korean_value_detailed = korean_value_parts[1];
 
             document.querySelector('#fortune').innerHTML =
-            '☯︎ 현재의 주역 분석코드 = ' + binary_value + '<br>' +
+            '☯︎ 현재의 주역 분석코드 = ' + '<span style="font-size: 15px; font-weight: bold; color: yellow;">' + binary_value + '</span><br>' +
             '--------------------------<br>' +
             '<br>' +
             '☯︎ 주역괘기반 현재상황 해석<br><br>' +
             '--------------------------<br>' +
             '<div style="text-align: center; color: white; background-color: black;">' + 
             '--------------------------<br>' +                
-            korean_value_overall + "[자세한 운세] <br><br>" +
+            '<span style="font-size: 15px; font-weight: bold; color: yellow;">' + korean_value_overall + "</span>[자세한 운세] <br><br>" +
             '</div>' +
             '<div style="text-align: left; color: white; background-color: black;">' +
+            '--------------------------<br>' +                
             korean_value_detailed + '</div><br><br><br>' +
             '---------------------<br><br>' +
             '본 프로그램, 사진, 저작물은 옥토의 소유입니다. 허락없이 사용시 법적처벌됩니다.<br></div>';
             document.querySelector('.result').style.display = 'block';
             document.querySelector('.result').classList.add('result');
         }
-
-
     </script>
 </body>
 </html>
