@@ -14,7 +14,7 @@
             overflow-x: hidden; /* Hide horizontal scroll */
             padding: 0;
             margin: 0;
-            width: 100%; /* Set width to 100% */
+            width: 90%; /* Set width to 100% */
             max-width: 600px; /* Set max-width for larger devices */
             margin-left: auto;
             margin-right: auto;
@@ -23,12 +23,12 @@
         .result {
             display: none;
             background-color: black; /* Set background color to black */
-            padding: 25px;
+            padding: 10px;
             border: 2px solid #ddd;
             border-radius: 5px;
             margin-top: 15px;
             color: white; /* Set text color to white */
-            width: 80%; /* Set width to 80% */
+            width: 90%; /* Set width to 90% */
             margin-left: auto;
             margin-right: auto;
         }
@@ -39,8 +39,8 @@
         }
 
         #name {
-            font-size: 15px;
-            width: 80%; /* Set width to 80% */
+            font-size: 16px;
+            width: 90%; /* Set width to 80% */
             margin-left: auto;
             margin-right: auto;
         }
@@ -1233,18 +1233,17 @@
             const korean_value_detailed = korean_value_parts[1];
 
             document.querySelector('#fortune').innerHTML =
-            '<span style="font-size: 15px; font-weight: bold; color: yellow;">☯︎ 현재의 주역 분석코드 = ' + binary_value + '</span><br>' +
+            '<span style="font-size: 22px; font-weight: bold; color: yellow;">☯︎ 현재의 주역 분석코드 = ' + binary_value + '</span><br>' +
             '--------------------------<br>' +
             '<br>' +
-            '<span style="font-size: 15px; font-weight: bold; color: yellow;">☯︎ 주역괘기반 현재상황 해석</span><br><br>' +
-            '--------------------------<br>' +
+            '<span style="font-size: 22px; font-weight: bold; color: yellow;">☯︎ 주역괘기반 현재상황 해석</span><br>' +
+            '--------------------------<br><br>' +
             '<div style="text-align: center; color: white; background-color: black;">' + 
-            '<span style="font-size: 15px; font-weight: bold; color: yellow;">' + korean_value_overall + "</span><br>" +
-            '<span style="font-size: 15px; font-weight: bold; color: yellow;">[자세한 운세]</span> <br><br>' +
-            '--------------------------<br>' +                
+            '<span style="font-size: 22px; font-weight: bold; color: yellow;">' + korean_value_overall + "</span><br>" +
+            '<span style="font-size: 22px; font-weight: bold; color: yellow;">[자세한 운세]</span> <br><br>' +
             '</div>' +
             '<div style="text-align: left; color: white; background-color: black;">' +
-            '<span style="font-size: 10px; font-weight: 900;">' + korean_value_detailed + '</span></div><br><br><br>' +
+            '<span style="font-size: 13px; font-weight: 850;">' + korean_value_detailed + '</span></div><br><br><br>' +
             '---------------------<br><br>' +
             '본 프로그램, 사진, 저작물은 옥토의 소유입니다. 허락없이 사용시 법적처벌됩니다.<br></div>';
             document.querySelector('.result').style.display = 'block';
