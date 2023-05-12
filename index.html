@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>오늘의 운세 by Quantum IChing</title>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
+        html, body {
             text-align: center;
             font-family: 'Alegreya', serif;
             background-color: black; /* Set background color to black */
@@ -15,16 +15,19 @@
             padding: 0;
             margin: 0;
             width: 100%; /* Set width to 100% */
+            max-width: 480px; /* Set max-width for Galaxy S20 ratio */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .result {
             display: none;
-            background-color: #fcf7ce;
+            background-color: black; /* Set background color to black */
             padding: 25px;
             border: 2px solid #ddd;
             border-radius: 5px;
             margin-top: 15px;
-            color: black;  // Add this line to set the text color to black
+            color: white; /* Set text color to white */
             width: 90%; /* Set width to 90% */
             margin-left: auto;
             margin-right: auto;
@@ -71,7 +74,6 @@
     }
     </style>
 </head>
-
 
 <body>
     <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg" alt="I Ching image" />
