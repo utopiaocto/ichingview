@@ -78,7 +78,7 @@
 
 <body style="padding-left: 15px; padding-right: 15px;">
     <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg" alt="I Ching image" />
-    <h4> "모든 것은 원자로 이루어져 있다!"  - 리차드 파인만 -  </h4>
+    <h4> "모든 것은 원자로 이루어져 있다!"   - 리차드 파인만 -  </h4>
     <h5>  양자물리학은 원자를 다루는 학문입니다. 원자는 파동을 가지고 있습니다. 주역은 원자가 하늘,사람,땅에서 서로 연관되는 파동의 세계를 다룹니다. 간절함은 파동을 발생시키고, 그 파동에 답을 주는 것이 주역의 원리입니다. 양자물리학의 아버지인 닐스보어는 상보성의 원리를 주역에서 찾아 노벨물리학상을 수상하였습니다. 본 프로그램은 10년간의 주역과학의 연구를 통해 양자물리학의 원리를 주역에 적용하여 세계최초로 양자주역 알고리즘으로 구현되었습니다. 관측을 하고 결정을 통해서 여러분의 미래를 설계하세요. 간절함을 담아서 아래에 사연을 적어보세요. 그 답을 찾으실 겁니다. </h5>
     <h6>-------------------------------------------------</h6>
     <h3> 😃 현재 답답한 사연을 적어보세요. 간절함을 가지고 자세히 적을 수록 정확한 답을 줍니다. 😃 </h3>
@@ -1239,7 +1239,7 @@
             const korean_value1 = transformed_korean_values0[binary_value] || "미정의 값";
             const korean_value = korean_values[binary_value] || "미정의 값";
 
-            document.querySelector('#output').innerHTML = '☯︎ 내가 관측한 현재의 주역괘는? ☯︎<br>' + korean_value0 + ' 괘 입니다. (' + korean_value1 + ')';
+            document.querySelector('#output').innerHTML = '☯︎ 내가 관측한 현재 주역괘는<br>' + korean_value0 + ' 괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
 
             // Split korean_value into two parts
@@ -1248,6 +1248,7 @@
             const korean_value_detailed = korean_value_parts[1] || "자세한 운세가 없습니다.";
 
             document.querySelector('#fortune').innerHTML =
+            '<br>' +
             '<span style="font-size: 20px; font-weight: bold; color: yellow;">☯︎ 나의 현재상황 관측코드 = ' + binary_value + '</span><br>' +
             '--------------------------<br>' +
             '<br>' +
@@ -1257,7 +1258,8 @@
             '<div style="text-align: center; color: white; background-color: black;">' + 
             '<span style="font-size: 15px; font-weight: bold; color: yellow;">' + korean_value_overall + "</span><br>" +
             '<span style="font-size: 20px; font-weight: bold; color: yellow;">☯︎ 내가 관측한 세부 상황별 해답</span> <br>' +
-            '--------------------------<br>' +                
+            '--------------------------<br>' +  
+            '<br>' +
             '</div>' +
             '<div style="text-align: left; color: white; background-color: black;">' +
             '<span style="font-size: 13px; font-weight: 900;">' + korean_value_detailed + '</span></div><br><br><br>' +
