@@ -66,6 +66,21 @@
         .padding-bottom {
             padding-bottom: 200px;
         }
+
+        .future-button {
+            background-color: green;
+            color: white;
+            font-size: 18px;
+            padding: 10px 15px;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .future-button:hover {
+            background-color: darkgreen;
+        }
     </style>
 </head>
 <body style="padding-left: 20px; padding-right: 20px;">
@@ -81,6 +96,7 @@
         <h2 id="output"></h2>
         <img id="image" src="" alt="I Ching image" />
         <p id="fortune"></p>
+        <a href="http://www.snsbaker.com" target="_blank" class="future-button">3개월 미래 예방 주사 맞기</a>
     </div>
     <div class="padding-bottom"></div>
 
@@ -152,12 +168,12 @@
                 '101010': '64 화수미제',
         };
         let transformed_korean_values0 = {};
+
         for (let key in korean_values0) {
             transformed_korean_values0[key] = korean_values0[key].split(' ')[0];
         }
 
         console.log(transformed_korean_values0);
-
         const korean_values = {
                   //건부
                   '111111': (
@@ -492,6 +508,7 @@
 
                   ),
         };
+
         const imageUrls = [
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/01.jpeg',
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/02.jpeg',
@@ -570,7 +587,7 @@
             }
             return 'https://example.com/default_image.jpeg';
         }
-        
+
         function generateRandomBinaryValue() {
             const binary_values = ['111', '011', '101', '001', '110', '010', '100', '000'];
             const first_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
@@ -579,25 +596,23 @@
         }
 
         function showFortune() {
-            const name = document.querySelector('#name').value;
             const binary_value = generateRandomBinaryValue();
             const korean_value0 = korean_values0[binary_value];
             const korean_value = korean_values[binary_value];
 
             document.querySelector('#output').innerHTML = '나의 현재 상황은<br>' + korean_value0 + '주역괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
-
             document.querySelector('#fortune').innerHTML =
-            '<br>' +
-            '<span style="font-size: 23px; font-weight: bold; color: yellow;">[양자물리학으로 관측한 현재]</span><br>' +
-            '<br>' +
-            '<div style="text-align: center; color: white; background-color: black;">' + 
-            '<span style="font-size: 20px; font-weight: bold; color: yellow;">' + korean_value + "</span><br>" +
-            '☯︎<br><br>' +
-            '퀀텀옥토<br></div>'+
-            '문의 : 010-4305-8255, 이메일 : 8richfields@gmail.com <br></div>'+
-            '<br>' +
-            '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br></div>';
+                '<br>' +
+                '<span style="font-size: 23px; font-weight: bold; color: yellow;">[양자물리학으로 관측한 현재]</span><br>' +
+                '<br>' +
+                '<div style="text-align: center; color: white; background-color: black;">' + 
+                '<span style="font-size: 20px; font-weight: bold; color: yellow;">' + korean_value + "</span><br>" +
+                '----------------------<br><br>' +
+                '퀀텀옥토<br></div>'+
+                '문의 : 010-4305-8255, 이메일 : 8richfields@gmail.com <br></div>'+
+                '<br>' +
+                '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br></div>';
 
             document.querySelector('.result').style.display = 'block';
             document.querySelector('.result').classList.add('result');
