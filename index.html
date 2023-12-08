@@ -1,174 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>나의 현재 관측하기 by Quantum IChing</title>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        html, body {
-            text-align: center;
-            font-family: 'Alegreya', serif;
-            background-color: black;
-            color: white;
-            overflow-x: hidden;
-            padding: 0;
-            margin: 0;
-            width: 95%;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+      html, body {
+          text-align: center;
+          font-family: 'Alegreya', serif;
+          background-color: black;
+          color: white;
+          overflow-x: hidden;
+          padding: 0;
+          margin: 0;
+          width: 95%;
+          max-width: 600px;
+          margin-left: auto;
+          margin-right: auto;
+      }
 
-        .result {
-            display: none;
-            background-color: black;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            margin-top: 15px;
-            color: white;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+      .result {
+          display: none;
+          background-color: black;
+          padding: 10px;
+          border: 2px solid #ddd;
+          border-radius: 5px;
+          margin-top: 15px;
+          color: white;
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+      }
 
-        img {
-            max-width: 80%;
-            height: auto;
-        }
+      img {
+          max-width: 80%;
+          height: auto;
+      }
 
-        #name {
-            font-size: 16px;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+      #name {
+          font-size: 16px;
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+      }
 
-        button {
-            background-color: #4B0082;
-            color: white;
-            font-size: 23px;
-            font-weight: bold;
-            padding: 10px 20px;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-            width: 90%;
-            margin-left: auto;
-            margin-right: auto;
-        }
+      button {
+          background-color: #4B0082;
+          color: white;
+          font-size: 23px;
+          font-weight: bold;
+          padding: 10px 20px;
+          text-transform: uppercase;
+          border: none;
+          cursor: pointer;
+          width: 90%;
+          margin-left: auto;
+          margin-right: auto;
+      }
 
-        button:hover {
-            background-color: #6a0dad;
-        }
+      button:hover {
+          background-color: #6a0dad;
+      }
 
-        .padding-bottom {
-            padding-bottom: 200px;
-        }
+      .padding-bottom {
+          padding-bottom: 200px;
+      }
 
-        .future-button {
-            background-color: green;
-            color: white;
-            font-size: 18px;
-            padding: 10px 15px;
-            margin-top: 20px;
-            text-decoration: none;
-            display: inline-block;
-            border-radius: 5px;
-        }
+      .future-button {
+          background-color: green;
+          color: white;
+          font-size: 18px;
+          padding: 10px 15px;
+          margin-top: 20px;
+          text-decoration: none;
+          display: inline-block;
+          border-radius: 5px;
+      }
 
-        .future-button:hover {
-            background-color: darkgreen;
-        }
-    </style>
+      .future-button:hover {
+          background-color: darkgreen;
+      }
+  </style>
 </head>
 <body style="padding-left: 20px; padding-right: 20px;">
-    <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg" alt="I Ching image" />
-    <h2>"궁즉변, 변즉통, 통즉구"</h2>
-    <h4>"궁하면 변하고, 변하면 통하고, 통하면 오래간다."</h4>
-    <h4>본 프로그램은 10년간의 주역과학 연구를 통해 양자물리학의 원리를 주역에 적용, 세계 최초의 양자주역 알고리즘으로 구현하였습니다.</h4>
-    <h4>여러분의 미래는 현재의 관측을 통해 결정됩니다. 간절한 마음을 담아 현재 상황을 적어 보세요. 간절할 수록 정확한 답을 줍니다.</h4>
-    <input type="text" id="name" placeholder="여기에 사연을 적고, 아래 버튼을 누르세요">
-    <p></p>
-    <button onclick="showFortune()">나의 현재 관측하기</button>
-    <div class="result">
-        <h2 id="output"></h2>
-        <img id="image" src="" alt="I Ching image" />
-        <p id="fortune"></p>
-        <a href="https://litt.ly/quantumiching" target="_blank" class="future-button">3개월 미래 예방 주사 맞기</a>
-    </div>
-    <div class="padding-bottom"></div>
+  <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg" alt="I Ching image" />
+  <h2>"궁즉변, 변즉통, 통즉구"</h2>
+  <h4>"궁하면 변하고, 변하면 통하고, 통하면 오래간다."</h4>
+  <h4>본 프로그램은 10년간의 주역과학 연구를 통해 양자물리학의 원리를 주역에 적용, 세계 최초의 양자주역 알고리즘으로 구현하였습니다.</h4>
+  <h4>여러분의 미래는 현재의 관측을 통해 결정됩니다. 간절한 마음을 담아 현재 상황을 적어 보세요. 간절할 수록 정확한 답을 줍니다.</h4>
+  <input type="text" id="name" placeholder="여기에 사연을 적고, 아래 버튼을 누르세요">
+  <p></p>
+  <button onclick="showFortune()">나의 현재 관측하기</button>
+  <div class="result">
+      <h2 id="output"></h2>
+      <img id="image" src="" alt="I Ching image" />
+      <p id="fortune"></p>
+      <a href="https://litt.ly/quantumiching" target="_blank" class="future-button">3개월 미래 예방 주사 맞기</a>
+  </div>
+  <div class="padding-bottom"></div>
 
-    <script>
-        const korean_values0 = {
-                '111111': '01 건위천',
-                '000000': '02 곤위지',
-                '010001': '03 수뢰둔',
-                '100010': '04 산수몽',
-                '010111': '05 수천수',
-                '111010': '06 천수송',
-                '000010': '07 지수사',
-                '010000': '08 수지비',
-                '110111': '09 풍천소축',
-                '111011': '10 천택리',
-                '000111': '11 지천태',
-                '111000': '12 천지부',
-                '111101': '13 천화동인',
-                '101111': '14 화천대유',
-                '000100': '15 지산겸',
-                '001000': '16 뢰지예',
-                '011001': '17 택뢰수',
-                '100110': '18 산풍고',
-                '000011': '19 지택림',
-                '110000': '20 풍지관',
-                '101001': '21 화뢰서합',
-                '100101': '22 산화비',
-                '100000': '23 산지박',
-                '000001': '24 지뢰복',
-                '111001': '25 천뢰무망',
-                '100111': '26 산천대축',
-                '100001': '27 산뢰이',
-                '011110': '28 택풍대과',
-                '010010': '29 감위수',
-                '101101': '30 이위화',
-                '011100': '31 택산함',
-                '001110': '32 뢰풍항',
-                '111100': '33 천산돈',
-                '001111': '34 뢰천대장',
-                '101000': '35 화지진',
-                '000101': '36 지화명이',
-                '110101': '37 풍화가인',
-                '101011': '38 화택규',
-                '010100': '39 수산건',
-                '001010': '40 뢰수해',
-                '100011': '41 산택손',
-                '110001': '42 풍뢰익',
-                '011111': '43 택천쾌',
-                '111110': '44 천풍구',
-                '011000': '45 택지췌',
-                '000110': '46 지풍승',
-                '011010': '47 택수곤',
-                '010110': '48 수풍정',
-                '011101': '49 택화혁',
-                '101110': '50 화풍정',
-                '001001': '51 진위뢰',
-                '100100': '52 간위산',
-                '110100': '53 풍산점',
-                '001011': '54 뢰택귀매',
-                '001101': '55 뢰화풍',
-                '101100': '56 화산여',
-                '110110': '57 손위풍',
-                '011011': '58 태위택',
-                '110010': '59 풍수환',
-                '010011': '60 수택절',
-                '110011': '61 풍택중부',
-                '001100': '62 뢰산소과',
-                '010101': '63 수화기제',
-                '101010': '64 화수미제',
-        };
+  <script>
+      const korean_values0 = {
+              '111111': '01 건위천',
+              '000000': '02 곤위지',
+              '010001': '03 수뢰둔',
+              '100010': '04 산수몽',
+              '010111': '05 수천수',
+              '111010': '06 천수송',
+              '000010': '07 지수사',
+              '010000': '08 수지비',
+              '110111': '09 풍천소축',
+              '111011': '10 천택리',
+              '000111': '11 지천태',
+              '111000': '12 천지부',
+              '111101': '13 천화동인',
+              '101111': '14 화천대유',
+              '000100': '15 지산겸',
+              '001000': '16 뢰지예',
+              '011001': '17 택뢰수',
+              '100110': '18 산풍고',
+              '000011': '19 지택림',
+              '110000': '20 풍지관',
+              '101001': '21 화뢰서합',
+              '100101': '22 산화비',
+              '100000': '23 산지박',
+              '000001': '24 지뢰복',
+              '111001': '25 천뢰무망',
+              '100111': '26 산천대축',
+              '100001': '27 산뢰이',
+              '011110': '28 택풍대과',
+              '010010': '29 감위수',
+              '101101': '30 이위화',
+              '011100': '31 택산함',
+              '001110': '32 뢰풍항',
+              '111100': '33 천산돈',
+              '001111': '34 뢰천대장',
+              '101000': '35 화지진',
+              '000101': '36 지화명이',
+              '110101': '37 풍화가인',
+              '101011': '38 화택규',
+              '010100': '39 수산건',
+              '001010': '40 뢰수해',
+              '100011': '41 산택손',
+              '110001': '42 풍뢰익',
+              '011111': '43 택천쾌',
+              '111110': '44 천풍구',
+              '011000': '45 택지췌',
+              '000110': '46 지풍승',
+              '011010': '47 택수곤',
+              '010110': '48 수풍정',
+              '011101': '49 택화혁',
+              '101110': '50 화풍정',
+              '001001': '51 진위뢰',
+              '100100': '52 간위산',
+              '110100': '53 풍산점',
+              '001011': '54 뢰택귀매',
+              '001101': '55 뢰화풍',
+              '101100': '56 화산여',
+              '110110': '57 손위풍',
+              '011011': '58 태위택',
+              '110010': '59 풍수환',
+              '010011': '60 수택절',
+              '110011': '61 풍택중부',
+              '001100': '62 뢰산소과',
+              '010101': '63 수화기제',
+              '101010': '64 화수미제',
+      };
+
         let transformed_korean_values0 = {};
-
         for (let key in korean_values0) {
             transformed_korean_values0[key] = korean_values0[key].split(' ')[0];
         }
@@ -577,15 +577,19 @@
         ];
 
         function generateRandomBinaryValue() {
-            // korean_values0의 키 목록을 배열로 변환
-            const keys = Object.keys(korean_values0);
-            // 배열에서 무작위 키 선택
-            const randomIndex = Math.floor(Math.random() * keys.length);
-            return keys[randomIndex];
+            // 무작위 3자리 이진수 생성
+            const randomBinaryPart = () => {
+                let result = "";
+                for (let i = 0; i < 3; i++) {
+                    result += Math.round(Math.random()).toString();
+                }
+                return result;
+            };
+            return randomBinaryPart() + randomBinaryPart();
         }
         
         function getImageUrl(binary_value) {
-            const korean_value0 = korean_values0[binary_value];
+          const korean_value0 = korean_values0[binary_value];
             if (korean_value0) {
                 const image_number_str = korean_value0.split(' ')[0];
                 const image_number = parseInt(image_number_str);
@@ -593,11 +597,11 @@
                     return imageUrls[image_number - 1];
                 }
             }
-            return 'https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg';
+            return 'https://example.com/default_image.jpeg';
         }
 
         function showFortune() {
-            const binary_value = generateRandomBinaryValue();
+          const binary_value = generateRandomBinaryValue();
             const korean_value0 = korean_values0[binary_value];
             const korean_value = korean_values[binary_value];
 
