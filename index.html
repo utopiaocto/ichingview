@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>The Quantum IChing</title>
+    <title>나의 현재 관측하기 by Quantum IChing</title>
     <link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@400;700&display=swap" rel="stylesheet">
     <style>
         html, body {
@@ -12,49 +12,51 @@
             background-color: black;
             color: white;
             overflow-x: hidden;
-            padding: 5px;
+            padding: 0;
             margin: 0;
-            width: 100%;
-            box-sizing: border-box;
+            width: 95%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .content-box {
+        .result {
+            display: none;
             background-color: black;
-            padding: 5px;
+            padding: 10px;
             border: 2px solid #ddd;
             border-radius: 5px;
-            margin: 5px auto;
+            margin-top: 15px;
             color: white;
-            max-width: 100%;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        img, #name, button {
-            max-width: 100%;
-            margin: 0 auto;
-            display: block;
-        }
-
-        #initialImage {
-            width: 95%;
-        }
-
-        #resultImage {
-            width: 70%;
+        img {
+            max-width: 80%;
+            height: auto;
         }
 
         #name {
             font-size: 16px;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         button {
             background-color: #4B0082;
             color: white;
-            font-size: 18px;
+            font-size: 23px;
             font-weight: bold;
             padding: 10px 20px;
             text-transform: uppercase;
             border: none;
             cursor: pointer;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         button:hover {
@@ -62,17 +64,25 @@
         }
 
         .padding-bottom {
-            padding-bottom: 20px;
+            padding-bottom: 200px;
         }
 
-    </style>
-    <style>
-    .center-align {
-        text-align: center;
-    }
+        .future-button {
+            background-color: green;
+            color: white;
+            font-size: 18px;
+            padding: 10px 15px;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+        }
+
+        .future-button:hover {
+            background-color: darkgreen;
+        }
     </style>
 </head>
-
 <body style="padding-left: 20px; padding-right: 20px;">
     <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg" alt="I Ching image" />
     <h2>"궁즉변, 변즉통, 통즉구"</h2>
@@ -565,35 +575,35 @@
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/63.jpeg',
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/64.jpeg',
         ];
+
+        function generateRandomBinaryValue() {
+            // korean_values0의 키 목록을 배열로 변환
+            const keys = Object.keys(korean_values0);
+            // 배열에서 무작위 키 선택
+            const randomIndex = Math.floor(Math.random() * keys.length);
+            return keys[randomIndex];
+        }
+        
         function getImageUrl(binary_value) {
             const korean_value0 = korean_values0[binary_value];
             if (korean_value0) {
-                const image_number = parseInt(korean_value0.split(' ')[0]) - 1;
-                return imageUrls[image_number];
-            } else {
-                // return a default image URL if binary_value is not defined in the korean_values0
-                return 'https://example.com/default_image.jpeg';
+                const image_number_str = korean_value0.split(' ')[0];
+                const image_number = parseInt(image_number_str);
+                if (!isNaN(image_number)) {
+                    return imageUrls[image_number - 1];
+                }
             }
+            return 'https://example.com/default_image.jpeg';
         }
 
-        function generateRandomBinaryValue() {
-            const binary_values = ['111', '011', '101', '001', '110', '010', '100', '000'];
-            const first_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
-            const second_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
-            return first_digit + second_digit;
-        }
-        
         function showFortune() {
-            const name = document.querySelector('#name').value;
             const binary_value = generateRandomBinaryValue();
-
-            const korean_value0 = korean_values0[binary_value] || "Undefined value";
-            const korean_value = korean_values[binary_value] || "Undefined value";
+            const korean_value0 = korean_values0[binary_value];
+            const korean_value = korean_values[binary_value];
 
             document.querySelector('#output').innerHTML = '나의 현재 상황은<br>' + korean_value0 + '주역괘 입니다.';
-            document.querySelector('#image').src = getImageUrl(binary_value)
+            document.querySelector('#image').src = getImageUrl(binary_value);
             document.querySelector('#fortune').innerHTML =
-
                 '<div style="background-color: yellow; color: black; padding: 10px; margin: 0px;">' +
                 '<span style="font-size: 23px; font-weight: bold; color: black;">[양자물리학으로 관측한 현재]</span><br>' +
                 '</div>' +
@@ -606,17 +616,16 @@
                 '<span style="font-size: 20px; font-weight: bold; color: black;">'+    
                 '<br>' +
                 '퀀텀옥토<br></div>'+
-                '<span style="font-size: 18px; font-weight: bold; color: white;">'+    
                 '전화문의 : 010-4305-8255' +
                 '메일문의 : 8richfields@gmail.com <br></div>'+
                 '<br>' +
                 '<div style="background-color: black; color: white; padding: 10px; margin: 0px;">' +
                 '<span style="font-size: 15px; font-weight: bold; color: white;">'+                    
                 '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br></div>';
+
             document.querySelector('.result').style.display = 'block';
             document.querySelector('.result').classList.add('result');
         }
-
     </script>
 </body>
 </html>
