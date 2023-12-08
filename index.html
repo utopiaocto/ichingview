@@ -9,26 +9,26 @@
         html, body {
             text-align: center;
             font-family: 'Alegreya', serif;
-            background-color: black; /* Set background color to black */
-            color: white; /* Set text color to white */
-            overflow-x: hidden; /* Hide horizontal scroll */
+            background-color: black;
+            color: white;
+            overflow-x: hidden;
             padding: 0;
             margin: 0;
-            width: 100%; /* Set width to 100% */
-            max-width: 600px; /* Set max-width for larger devices */
+            width: 95%;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
         .result {
             display: none;
-            background-color: black; /* Set background color to black */
+            background-color: black;
             padding: 10px;
             border: 2px solid #ddd;
             border-radius: 5px;
             margin-top: 15px;
-            color: white; /* Set text color to white */
-            width: 90%; /* Set width to 90% */
+            color: white;
+            width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -40,7 +40,7 @@
 
         #name {
             font-size: 16px;
-            width: 90%; /* Set width to 80% */
+            width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -54,7 +54,7 @@
             text-transform: uppercase;
             border: none;
             cursor: pointer;
-            width: 90%; /* Set width to 90% */
+            width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -64,24 +64,16 @@
         }
 
         .padding-bottom {
-            padding-bottom: 200px; /* Adjust this value to your needs */
+            padding-bottom: 200px;
         }
-
-    </style>
-    <style>
-    .center-align {
-        text-align: center;
-    }
     </style>
 </head>
-
-
-<body style="padding-left: 15px; padding-right: 15px;">
+<body style="padding-left: 20px; padding-right: 20px;">
     <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg" alt="I Ching image" />
-    <h2> "궁즉변, 변즉통, 통즉구"</h2>
-    <h4> "궁하면 변하고, 변하면 통하고, 통하면 오래간다."</h4>
-    <h4> 본 프로그램은 10년간의 주역과학 연구를 통해 양자물리학의 원리를 주역에 적용, 세계 최초의 양자주역 알고리즘으로 구현하였습니다.</h4>
-    <h4> 여러분의 미래는 현재의 관측을 통해 결정됩니다. 간절한 마음을 담아 현재 상황을 적어 보세요. 간절할 수록 정확한 답을 줍니다.</h4>
+    <h2>"궁즉변, 변즉통, 통즉구"</h2>
+    <h4>"궁하면 변하고, 변하면 통하고, 통하면 오래간다."</h4>
+    <h4>본 프로그램은 10년간의 주역과학 연구를 통해 양자물리학의 원리를 주역에 적용, 세계 최초의 양자주역 알고리즘으로 구현하였습니다.</h4>
+    <h4>여러분의 미래는 현재의 관측을 통해 결정됩니다. 간절한 마음을 담아 현재 상황을 적어 보세요. 간절할 수록 정확한 답을 줍니다.</h4>
     <input type="text" id="name" placeholder="여기에 사연을 적고, 아래 버튼을 누르세요">
     <p></p>
     <button onclick="showFortune()">나의 현재 관측하기</button>
@@ -160,12 +152,12 @@
                 '101010': '64 화수미제',
         };
         let transformed_korean_values0 = {};
-
         for (let key in korean_values0) {
             transformed_korean_values0[key] = korean_values0[key].split(' ')[0];
         }
 
         console.log(transformed_korean_values0);
+
         const korean_values = {
                   //건부
                   '111111': (
@@ -500,7 +492,6 @@
 
                   ),
         };
-
         const imageUrls = [
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/01.jpeg',
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/02.jpeg',
@@ -577,11 +568,8 @@
                     return imageUrls[image_number - 1];
                 }
             }
-            // return a default image URL if binary_value is not defined in korean_values0
-            // or if the resulting number is NaN
             return 'https://example.com/default_image.jpeg';
         }
-
         
         function generateRandomBinaryValue() {
             const binary_values = ['111', '011', '101', '001', '110', '010', '100', '000'];
@@ -589,20 +577,15 @@
             const second_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
             return first_digit + second_digit;
         }
+
         function showFortune() {
             const name = document.querySelector('#name').value;
             const binary_value = generateRandomBinaryValue();
-
-            // if binary_value is not defined in the korean_values0 or korean_values, set a default value
             const korean_value0 = korean_values0[binary_value];
-            const korean_value1 = transformed_korean_values0[binary_value];
             const korean_value = korean_values[binary_value];
 
             document.querySelector('#output').innerHTML = '나의 현재 상황은<br>' + korean_value0 + '주역괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
-
-
-            // Split korean_value into two parts
 
             document.querySelector('#fortune').innerHTML =
             '<br>' +
@@ -610,15 +593,15 @@
             '<br>' +
             '<div style="text-align: center; color: white; background-color: black;">' + 
             '<span style="font-size: 20px; font-weight: bold; color: yellow;">' + korean_value + "</span><br>" +
-            '☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎☯︎ <br><br>' +
-            '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다.허락없이 사용시 저작권법에 따라 법적처벌됩니다.<br></div>'+
+            '☯︎<br><br>' +
+            '퀀텀옥토<br></div>'+
+            '문의 : 010-4305-8255, 이메일 : 8richfields@gmail.com <br></div>'+
             '<br>' +
-            '퀀텀옥토 문의 : 010-4305-8255, 이메일 : 8richfields@gmail.com <br></div>';
+            '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br></div>';
 
             document.querySelector('.result').style.display = 'block';
             document.querySelector('.result').classList.add('result');
         }
-
     </script>
 </body>
 </html>
