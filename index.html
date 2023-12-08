@@ -601,20 +601,15 @@
             const korean_value0 = korean_values0[binary_value];
             const korean_value = korean_values[binary_value];
 
-            // Split korean_value into two parts
-            const korean_value_parts = korean_value.split("[양자물리학으로 관측한 현재] <br><br>");
-            const korean_value_overall = korean_value_parts[0];
-            const korean_value_detailed = korean_value_parts[1] || "자세한 운세가 없습니다.";
-
             document.querySelector('#output').innerHTML = '나의 현재 상황은<br>' + korean_value0 + '주역괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
             document.querySelector('#fortune').innerHTML =
                 '<div style="background-color: yellow; color: black; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 23px; font-weight: bold; color: black;">' + korean_value_overall + '</span><br>' +
+                '<span style="font-size: 23px; font-weight: bold; color: black;">[양자물리학으로 관측한 현재]</span><br>' +
                 '</div>' +
 
                 '<div style="background-color: green; color: white; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 20px; font-weight: bold; color: white;">' + korean_value_detailed + "</span><br>" +
+                '<span style="font-size: 20px; font-weight: bold; color: white;">' + korean_value + "</span><br>" +
                 '</div>' +
 
                 '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
