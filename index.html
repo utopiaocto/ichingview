@@ -96,7 +96,7 @@
         <h2 id="output"></h2>
         <img id="image" src="" alt="I Ching image" />
         <p id="fortune"></p>
-        <a href="http://www.snsbaker.com" target="_blank" class="future-button">3개월 미래 예방 주사 맞기</a>
+        <a href="https://litt.ly/quantumiching" target="_blank" class="future-button">3개월 미래 예방 주사 맞기</a>
     </div>
     <div class="padding-bottom"></div>
 
@@ -576,6 +576,14 @@
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/64.jpeg',
         ];
 
+        function generateRandomBinaryValue() {
+            // korean_values0의 키 목록을 배열로 변환
+            const keys = Object.keys(korean_values0);
+            // 배열에서 무작위 키 선택
+            const randomIndex = Math.floor(Math.random() * keys.length);
+            return keys[randomIndex];
+        }
+        
         function getImageUrl(binary_value) {
             const korean_value0 = korean_values0[binary_value];
             if (korean_value0) {
@@ -586,13 +594,6 @@
                 }
             }
             return 'https://example.com/default_image.jpeg';
-        }
-
-        function generateRandomBinaryValue() {
-            const binary_values = ['111', '011', '101', '001', '110', '010', '100', '000'];
-            const first_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
-            const second_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
-            return first_digit + second_digit;
         }
 
         function showFortune() {
