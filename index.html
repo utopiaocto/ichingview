@@ -78,16 +78,15 @@
 
 <body style="padding-left: 15px; padding-right: 15px;">
     <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg" alt="I Ching image" />
-    <h3> "궁즉변, 변즉통, 통즉구"</h4>
-    <h3> "궁하면 변하고, 변하면 통하고, 통하면 오래간다."</h4>
-    <h4> 본 프로그램은 10년간의 주역과학 연구를 통해 양자물리학의 원리를 주역에 적용, 세계 최초의 양자주역 알고리즘으로 구현하였습니다. 여러분의 미래는 관측과 결정을 통해 설계됩니다. 간절한 마음을 담아 사연을 적어 보세요. 그리고 그 답을 찾아보세요.</h5>
-    <h4>-------------------------------------------------</h6>
-    <h3> ☯︎ 현재 상황을 적어보세요. 간절할 수록 정확한 답을 줍니다. </h4>
+    <h2> "궁즉변, 변즉통, 통즉구"</h2>
+    <h3> "궁하면 변하고, 변하면 통하고, 통하면 오래간다."</h3>
+    <h3> 본 프로그램은 10년간의 주역과학 연구를 통해 양자물리학의 원리를 주역에 적용, 세계 최초의 양자주역 알고리즘으로 구현하였습니다. 여러분의 미래는 관측과 결정을 통해 설계됩니다. 간절한 마음을 담아 사연을 적어 보세요. 그리고 그 답을 찾아보세요.</h3>
+    <h3> 현재 상황을 적어보세요. 간절할 수록 정확한 답을 줍니다. </h3>
     <input type="text" id="name" placeholder="여기에 사연을 적고, 아래 버튼을 누르세요">
     <p></p>
     <button onclick="showFortune()">나의 현재 관측하기</button>
     <div class="result">
-        <h1 id="output"></h1>
+        <h2 id="output"></h2>
         <img id="image" src="" alt="I Ching image" />
         <p id="fortune"></p>
     </div>
@@ -572,15 +571,12 @@
         function getImageUrl(binary_value) {
             const korean_value0 = korean_values0[binary_value];
             if (korean_value0) {
-                const image_number_str = korean_value0.split(' ')[0];
-                if (!isNaN(image_number_str)) {
-                    const image_number = parseInt(image_number_str) - 1;
-                    return imageUrls[image_number];
-                }
+                const image_number = parseInt(korean_value0.split(' ')[0]) - 1;
+                return imageUrls[image_number];
+            } else {
+                // return a default image URL if binary_value is not defined in the korean_values0
+                return 'https://example.com/default_image.jpeg';
             }
-            // return a default image URL if binary_value is not defined in the korean_values0
-            // or if image_number_str is not a valid number
-            return 'https://example.com/default_image.jpeg';
         }
 
 
@@ -596,11 +592,11 @@
             const binary_value = generateRandomBinaryValue();
 
             // if binary_value is not defined in the korean_values0 or korean_values, set a default value
-            const korean_value0 = korean_values0[binary_value] || "미정의 값";
-            const korean_value1 = transformed_korean_values0[binary_value] || "미정의 값";
-            const korean_value = korean_values[binary_value] || "미정의 값";
+            const korean_value0 = korean_values0[binary_value];
+            const korean_value1 = transformed_korean_values0[binary_value];
+            const korean_value = korean_values[binary_value];
 
-            document.querySelector('#output').innerHTML = '나의 현재 상황은 ' + korean_value0 + '주역괘 입니다.';
+            document.querySelector('#output').innerHTML = '나의 현재 상황은<br>' + korean_value0 + '주역괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
 
 
@@ -609,12 +605,12 @@
             document.querySelector('#fortune').innerHTML =
             '<br>' +
             '<span style="font-size: 23px; font-weight: bold; color: yellow;">[양자물리학으로 관측한 현재]</span><br>' +
-            '--------------------------<br>' +
             '<br>' +
             '<div style="text-align: center; color: white; background-color: black;">' + 
             '<span style="font-size: 20px; font-weight: bold; color: yellow;">' + korean_value + "</span><br>" +
-            '--------------------------<br><br>' +
-            '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다.허락없이 사용시 저작권법에 따라 법적처벌됩니다.<br></div>';
+            '⏤⏤⏤⏤⏤⏤⏤⏤⏤ ☯︎ ⏤⏤⏤⏤⏤⏤⏤⏤ <br><br>' +
+            '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다.허락없이 사용시 저작권법에 따라 법적처벌됩니다.<br></div>'+
+            '<br>' +
             '퀀텀옥토 문의 : 010-4305-8255, 이메일 : 8richfields@gmail.com <br></div>';
 
             document.querySelector('.result').style.display = 'block';
