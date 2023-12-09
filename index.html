@@ -587,15 +587,17 @@
         function getImageUrl(binary_value) {
             const korean_value0 = korean_values0[binary_value];
             if (korean_value0) {
-                const image_number_str = korean_value0.split(' ')[0];
-                const image_number = parseInt(image_number_str);
-                if (!isNaN(image_number)) {
-                    return imageUrls[image_number - 1];
+                const split_values = korean_value0.split(' ');
+                if (split_values.length > 1) {
+                    const image_number_str = split_values[0];
+                    const image_number = parseInt(image_number_str);
+                    if (!isNaN(image_number)) {
+                        return imageUrls[image_number - 1];
+                    }
                 }
             }
             return 'https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg';
         }
-
         function showFortune() {
             const binary_value = generateRandomBinaryValue();
             const korean_value0 = korean_values0[binary_value];
