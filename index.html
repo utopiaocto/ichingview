@@ -577,11 +577,10 @@
         ];
 
         function generateRandomBinaryValue() {
-            // korean_values0의 키 목록을 배열로 변환
-            const keys = Object.keys(korean_values0);
-            // 배열에서 무작위 키 선택
-            const randomIndex = Math.floor(Math.random() * keys.length);
-            return keys[randomIndex];
+            const binary_values = ['111', '011', '101', '001', '110', '010', '100', '000'];
+            const first_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
+            const second_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
+            return first_digit + second_digit;
         }
         
         function getImageUrl(binary_value) {
