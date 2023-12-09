@@ -602,8 +602,12 @@
 
         function showFortune() {
             const binary_value = generateRandomBinaryValue();
+            console.log("Generated binary value: " + binary_value);  // 생성된 이진값 로그
+
             const korean_value0 = korean_values0[binary_value];
             const korean_value = korean_values[binary_value];
+
+            console.log("Diagnosis result: " + korean_value);  // 진단 결과 로그
 
             document.querySelector('#output').innerHTML = '나의 현재 상황은<br>' + korean_value0 + '주역괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
