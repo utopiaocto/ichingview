@@ -596,37 +596,31 @@
         }
 
         function showFortune() {
-            // 무작위 이진 값 생성
             const binary_value = generateRandomBinaryValue();
-
-            // 주역괘의 기본 정보와 상세 설명 가져오기
             const korean_value0 = korean_values0[binary_value];
             const korean_value = korean_values[binary_value];
 
-            // 결과 표시 영역 업데이트
             document.querySelector('#output').innerHTML = '나의 현재 상황은<br>' + korean_value0 + '주역괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
-            document.querySelector('#fortune').innerHTML = `
-                <div style="background-color: yellow; color: black; padding: 10px; margin: 0px;">
-                    <span style="font-size: 23px; font-weight: bold; color: black;">☯︎ 퀀텀주역으로 관측한 현재 ☯︎</span><br>
-                </div>
-                <div style="background-color: green; color: white; padding: 10px; margin: 0px;">
-                    <br><span style="font-size: 20px; font-weight: bold; color: white;"> korean_value </span>
-                </div>
-                <div style="background-color: white; color: black; padding: 10px; margin: 0px;">
-                    <span style="font-size: 20px; font-weight: bold; color: black;">
-                    퀀텀옥토<br>
-                    전화문의 : 010-4305-8255<br>
-                    메일문의 : 8richfields@gmail.com<br>
-                    </div>
-                <br>
-                <div style="background-color: black; color: white; padding: 10px; margin: 0px;">
-                    <span style="font-size: 15px; font-weight: bold; color: white;">
-                    본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br>
-                    </div>
-            `;
+            document.querySelector('#fortune').innerHTML =
+                '<div style="background-color: yellow; color: black; padding: 10px; margin: 0px;">' +
+                '<span style="font-size: 23px; font-weight: bold; color: black;">☯︎ 퀀텀주역으로 관측한 현재 ☯︎</span><br>' +
+                '</div>' +
+                '<div style="background-color: green; color: white; padding: 10px; margin: 0px;">' +
+                '<br><span style="font-size: 20px; font-weight: bold; color: white;">' + korean_value + '</span>' +
+                '</div>' +
+                '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
+                '<span style="font-size: 20px; font-weight: bold; color: black;">' +
+                '퀀텀옥토<br>' +
+                '전화문의 : 010-4305-8255<br>' +
+                '메일문의 : 8richfields@gmail.com<br>' +
+                '</div>' +
+                '<br>' +
+                '<div style="background-color: black; color: white; padding: 10px; margin: 0px;">' +
+                '<span style="font-size: 15px; font-weight: bold; color: white;">' +
+                '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br>' +
+                '</div>';
 
-            // 결과 영역 표시
             document.querySelector('.result').style.display = 'block';
         }
     </script>
