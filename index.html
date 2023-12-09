@@ -577,12 +577,12 @@
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/64.jpeg',
         ];
 
-        // 수정된 generateRandomBinaryValue 함수
         function generateRandomBinaryValue() {
-            const keys = Object.keys(korean_values0); 
-            return keys[Math.floor(Math.random() * keys.length)]; 
+            const binary_values = ['111', '011', '101', '001', '110', '010', '100', '000'];
+            const first_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
+            const second_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
+            return first_digit + second_digit;
         }
-
         
         function getImageUrl(binary_value) {
             const korean_value0 = korean_values0[binary_value];
@@ -606,7 +606,7 @@
 
             document.querySelector('#output').innerHTML = '나의 현재 상황은<br>' + korean_value0 + '주역괘 입니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
-            document.querySelector('#fortune').innerHTML = korean_value;
+            document.querySelector('#fortune').innerHTML =
                 '<div style="background-color: yellow; color: black; padding: 10px; margin: 0px;">' +
                 '<span style="font-size: 23px; font-weight: bold; color: black;">☯︎ 퀀텀주역으로 관측한 현재 ☯︎</span><br>' +
                 '</div>' +
