@@ -87,16 +87,16 @@
     <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg" alt="I Ching image" />
     <h2>"궁즉변, 변즉통, 통즉구"</h2>
     <h4>"궁하면 변하고, 변하면 통하고, 통하면 오래간다."</h4>
-    <h4>본 프로그램은 10년간의 주역과학 연구를 통해 양자물리학의 원리를 주역에 적용, 세계 최초의 양자주역 알고리즘으로 구현하였습니다.</h4>
+    <h4>본 프로그램은 10년간의 주역의 실전활용을 통해 양자물리학의 원리를 주역에 적용, 세계 최초의 양자주역 알고리즘으로 구현하였습니다.</h4>
     <h4>여러분의 미래는 현재의 관측을 통해 결정됩니다. 간절한 마음을 담아 현재 상황을 적어 보세요. 간절할 수록 정확한 답을 줍니다.</h4>
-    <input type="text" id="name" placeholder="여기에 사연을 적고, 아래 버튼을 누르세요">
+    <input type="text" id="name" placeholder="    여기에 사연을 적고, 아래 버튼을 누르세요">
     <p></p>
     <button onclick="showFortune()">나의 현재 관측하기</button>
     <div class="result">
         <h2 id="output"></h2>
         <img id="image" src="" alt="I Ching image" />
         <p id="fortune"></p>
-        <a href="https://litt.ly/quantumiching" target="_blank" class="future-button">3개월 미래 예방 주사 맞기</a>
+        <a href="https://litt.ly/quantumiching" target="_blank" class="future-button">3개월 미래 예방주사 맞기</a>
     </div>
     <div class="padding-bottom"></div>
 
@@ -608,7 +608,7 @@
             document.querySelector('#image').src = getImageUrl(binary_value);
             document.querySelector('#fortune').innerHTML = `
                 <div style="background-color: yellow; color: black; padding: 10px; margin: 0px;">
-                    <span style="font-size: 23px; font-weight: bold; color: black;">[양자물리학으로 관측한 현재]</span><br>
+                    <span style="font-size: 23px; font-weight: bold; color: black;">☯︎ 퀀텀주역으로 관측한 현재 ☯︎</span><br>
                 </div>
                 <div style="background-color: green; color: white; padding: 10px; margin: 0px;">
                     <br><span style="font-size: 20px; font-weight: bold; color: white;">${korean_value}</span>
