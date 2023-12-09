@@ -590,14 +590,15 @@
                 const split_values = korean_value0.split(' ');
                 if (split_values.length > 1) {
                     const image_number_str = split_values[0];
-                    const image_number = parseInt(image_number_str);
-                    if (!isNaN(image_number)) {
+                    if (/^\d+$/.test(image_number_str)) { // 숫자로만 구성된 문자열인지 확인
+                        const image_number = parseInt(image_number_str);
                         return imageUrls[image_number - 1];
                     }
                 }
             }
             return 'https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg';
         }
+
         function showFortune() {
             const binary_value = generateRandomBinaryValue();
             const korean_value0 = korean_values0[binary_value];
