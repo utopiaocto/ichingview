@@ -418,15 +418,27 @@
         function showFortune() {
             const binary_value = generateRandomBinaryValue();
             const fortuneData = korean_values[binary_value];
-
+        
             if (fortuneData) {
                 const outputElement = document.querySelector('#output');
                 const fortuneElement = document.querySelector('#fortune');
                 const resultElement = document.querySelector('.result');
-
+        
                 outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '괘가 관측되었습니다.';
-                fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
-                
+                fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
+                    '</div>' +
+                    '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
+                    '<span style="font-size: 20px; font-weight: bold; color: black;">' +
+                    '퀀텀옥토<br>' +
+                    '전화문의 : 010-4305-8255<br>' +
+                    '메일문의 : 8richfields@gmail.com<br>' +
+                    '</div>' +
+                    '<br>' +
+                    '<div style="background-color: black; color: white; padding: 10px; margin: 0px;">' +
+                    '<span style="font-size: 15px; font-weight: bold; color: white;">' +
+                    '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br>' +
+                    '</div>';
+        
                 resultElement.style.display = 'block';
             }
         }
