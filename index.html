@@ -19,7 +19,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         .result {
             display: none;
             background-color: black;
@@ -32,19 +31,16 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         img {
             max-width: 80%;
             height: auto;
         }
-
         #name {
             font-size: 16px;
             width: 90%;
             margin-left: auto;
             margin-right: auto;
         }
-
         button {
             background-color: #4B0082;
             color: white;
@@ -58,15 +54,12 @@
             margin-left: auto;
             margin-right: auto;
         }
-
         button:hover {
             background-color: #6a0dad;
         }
-
         .padding-bottom {
             padding-bottom: 200px;
         }
-
         .future-button {
             background-color: rgb(157, 9, 51);
             color: white;
@@ -77,12 +70,9 @@
             display: inline-block;
             border-radius: 0px;
         }
-
         .future-button:hover {
             background-color: darkgreen;
         }
-
-        /* Add CSS for responsive iframes */
         .video-responsive {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
@@ -99,9 +89,9 @@
         }
     </style>
 </head>
-<body style="text-align: center; padding-left: 7px; padding-right: 7px;">
+<body>
     <h3>여러분의 미래는</h3>
-    <h4>퀀텀 진단을 통해 바꿀 수 있습니다..</h4>
+    <h4>퀀텀 진단을 통해 바꿀 수 있습니다.</h4>
     <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.png" alt="I Ching image" style="width: 150px; height: 150px;" />
     <h4>본 관측방법은 10여년동안 주역괘를 3만번 이상의 실전 활용 후, 양자물리학의 원리를 주역에 적용, 세계 최초의 퀀텀 주역 알고리즘으로 구현하였습니다.</h4>
     <input type="text" id="name" placeholder="여기에 사연을 적고, 아래 버튼을 누르세요" style="text-align: center;">
@@ -109,16 +99,18 @@
     <button onclick="showFortune()">내 현재 관측하기</button>
     <div class="result">
         <h2 id="output"></h2>
+        <div class="video-responsive">
+            <iframe id="fortuneVideo" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
         <br>
         <a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>
-        <br><br>
-        <div class="video-responsive"></div> <!-- Placeholder for video -->
+        <br>
+        <img id="image" src="" alt="I Ching image" />
         <p id="fortune"></p>
     </div>
-
     <div class="padding-bottom"></div>
-
     <script>
+        // 데이터 객체 정의
         const korean_values0 = {
                 '111111': '01 건위천',
                 '000000': '02 곤위지',
@@ -193,72 +185,263 @@
 
         console.log(transformed_korean_values0);
         const korean_values = {
-            '111111': "자신감을 경계하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/1ZPNfTcq0qY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '000000': "모든 걸 수용하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/lwto9rivxSo' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '010001': "어려움을 극복하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/H0CFfVTmk4Q' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '100010': "공부에 힘쓰세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/JAbCtWMdWQw' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '010111': "서둘지 마세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/j1eud6S0oWs' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '111010': "소송을 대비하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/Lt1E9S_ruXY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '000010': "리더쉽을 키우세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/KxvPJpIk0js' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '010000': "팀워크를 키우세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/w_vbGlXWXFk' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '110111': "작은노력을 하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/Q3GqZKRfQ1k' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '111011': "정신을 바짝차리세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/LGHOp3Ds_ws' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '000111': "새롭게 시작하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/DtWmVtpf6wc' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '111000': "어려움에 대비하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/AnS0YAprpYc' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '111101': "귀인을 찾아보세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/6Q04NWE7WD4' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '101111': "밝은 마음을 가지세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/A7iH-hjsPSY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '000100': "겸손한 마음을 가지세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/JD07FNRrlZQ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '001000': "열정을 가지세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/KQZY_FJ__ao' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '011001': "진심을 따르세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/WHB0pREeDwo' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '100110': "건강을 조심하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/wbPTvTJ6SxY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '000011': "현명한 접근을 하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/M0dY7T0zlEw' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '110000': "신중히 관망하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/1InE2OrbV4E' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '101001': "쓴소리가 필요합니다.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/GP_xhNrZdLI' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '100101': "내실을 다지세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/33pBCb_fTNA' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '100000': "성장통을 극복하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/LUUWzTGhx8Q' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '000001': "새롭게 시작하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/bM28eEM1PIM' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '111001': "논쟁은 피하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/r__AgvTZ7Cg' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '100111': "큰 장애물을 극복하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/82wH8w023Yc' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '100001': "말과 음식을 조심하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/A-ukeNOnyT4' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '011110': "매우 위태롭습니다.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/FjCnvW-3HuQ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '010010': "바닥을 치는 상태네요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/Vl4d--fnao4' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '101101': "마음고민이 많으시네요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/Tua31ILwyKo' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '011100': "유대관계가 좋네요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/LzdQpGTT92I' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '001110': "바쁘게 움직이세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/2GbyRDxf5dA' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '111100': "하던일을 멈추세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/aL2ghnm7Xig' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '001111': "큰 명예가 있지만...<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/ddqVT56y39M' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '101000': "전진하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/-v4Hj5yHBZ4' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '000101': "동트기 전이 가장 어두워요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/jBFCIf3zIE4' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '110101': "화합이 중요해요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/8hd4-g1rzY4' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '101011': "차이점을 극복하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/MzaGtwJdXVw' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '010100': "난감한 상황이네요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/G8uv5db3m6k' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '001010': "어려움이 해결되네요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/Byrpq1MD7ms' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '100011': "과감하게 손해를 보세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/vazyZDUgzI8' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '110001': "큰 이익을 얻지만...<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/wnG8iZfHvII' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '011111': "결단이 필요해요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/qc1lebuaeSM' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '111110': "우연한 만남을 경계하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/-zvXeXJ6eTo' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '011000': "만사형통입니다.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/QnDd4LZRe5g' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '000110': "상승운입니다.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/xDb5hAd9q8I' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '011010': "아주 곤란한 상황이네요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/bnPbbVUe7Qs' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '010110': "협력을 하면 대박이예요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/VNz-ULLk7z8' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '011101': "큰 변화가 있습니다.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/5PGEI1KKgK8' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '101110': "행운이 찾아오네요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/3hhOD135VbY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '001001': "열심히 활동하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/U2v9C81N-zo' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '100100': "자신을 뒤돌아보세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/3X4t6Hd5BPI' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '110100': "점점 좋아집니다.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/1vKKtZX5u4I' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '001011': "타인과 협력하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/C0YBCHCqwCU' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '001101': "재물이 풍요롭지만...<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/Znx_ehoSKKA' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '101100': "지친 나그네 신세네요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/arDfuVd5zOI' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '110110': "바쁘기만 하군요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/NM7GwbDptJI' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '011011': "큰 고비를 넘겨야 해요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/rPKzseDnNr0' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '110010': "고민을 버리세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/TTXy0s52_ZU' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '010011': "절제해야 합니다.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/ff90NkG0LA0' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '110011': "진심으로 행동하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/gw0pTRUC0pQ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '001100': "과한 것을 경계하세요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/Nz8dX1X1wPY' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '010101': "노력한 결실이 있습니다.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/inSNcsZ7UMQ' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-            '101010': "아직까지 결실이 없는 상태군요.<br><br><iframe width='560' height='315' src='https://www.youtube.com/embed/mXUZ7O6xR2k' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>"
+            '111111': {
+                message: "자신감을 경계하세요.",
+                videoUrl: "https://www.youtube.com/embed/1ZPNfTcq0qY"
+            },
+            '000000': {
+                message: "모든 걸 수용하세요.",
+                videoUrl: "https://www.youtube.com/embed/lwto9rivxSo"
+            },
+            '010001': {
+                message: "어려움을 극복하세요.",
+                videoUrl: "https://www.youtube.com/embed/H0CFfVTmk4Q"
+            },
+            '100010': {
+                message: "공부에 힘쓰세요.",
+                videoUrl: "https://www.youtube.com/embed/JAbCtWMdWQw"
+            },
+            '010111': {
+                message: "서둘지 마세요.",
+                videoUrl: "https://www.youtube.com/embed/j1eud6S0oWs"
+            },
+            '111010': {
+                message: "소송을 대비하세요.",
+                videoUrl: "https://www.youtube.com/embed/Lt1E9S_ruXY"
+            },
+            '000010': {
+                message: "리더쉽을 키우세요.",
+                videoUrl: "https://www.youtube.com/embed/KxvPJpIk0js"
+            },
+            '010000': {
+                message: "팀워크를 키우세요.",
+                videoUrl: "https://www.youtube.com/embed/w_vbGlXWXFk"
+            },
+            '110111': {
+                message: "작은 노력을 하세요.",
+                videoUrl: "https://www.youtube.com/embed/Q3GqZKRfQ1k"
+            },
+            '111011': {
+                message: "정신을 바짝차리세요.",
+                videoUrl: "https://www.youtube.com/embed/LGHOp3Ds_ws"
+            },
+            '000111': {
+                message: "새롭게 시작하세요.",
+                videoUrl: "https://www.youtube.com/embed/DtWmVtpf6wc"
+            },
+            '111000': {
+                message: "어려움에 대비하세요.",
+                videoUrl: "https://www.youtube.com/embed/AnS0YAprpYc"
+            },
+            '111101': {
+                message: "귀인을 찾아보세요.",
+                videoUrl: "https://www.youtube.com/embed/6Q04NWE7WD4"
+            },
+            '101111': {
+                message: "밝은 마음을 가지세요.",
+                videoUrl: "https://www.youtube.com/embed/A7iH-hjsPSY"
+            },
+            '000100': {
+                message: "겸손한 마음을 가지세요.",
+                videoUrl: "https://www.youtube.com/embed/JD07FNRrlZQ"
+            },
+            '001000': {
+                message: "열정을 가지세요.",
+                videoUrl: "https://www.youtube.com/embed/KQZY_FJ__ao"
+            },
+            '011001': {
+                message: "진심을 따르세요.",
+                videoUrl: "https://www.youtube.com/embed/WHB0pREeDwo"
+            },
+            '100110': {
+                message: "건강을 조심하세요.",
+                videoUrl: "https://www.youtube.com/embed/wbPTvTJ6SxY"
+            },
+            '000011': {
+                message: "현명한 접근을 하세요.",
+                videoUrl: "https://www.youtube.com/embed/M0dY7T0zlEw"
+            },
+            '110000': {
+                message: "신중히 관망하세요.",
+                videoUrl: "https://www.youtube.com/embed/1InE2OrbV4E"
+            },
+            '101001': {
+                message: "쓴소리가 필요합니다.",
+                videoUrl: "https://www.youtube.com/embed/GP_xhNrZdLI"
+            },
+            '100101': {
+                message: "내실을 다지세요.",
+                videoUrl: "https://www.youtube.com/embed/33pBCb_fTNA"
+            },
+            '100000': {
+                message: "성장통을 극복하세요.",
+                videoUrl: "https://www.youtube.com/embed/LUUWzTGhx8Q"
+            },
+            '000001': {
+                message: "새롭게 시작하세요.",
+                videoUrl: "https://www.youtube.com/embed/bM28eEM1PIM"
+            },
+            '111001': {
+                message: "논쟁은 피하세요.",
+                videoUrl: "https://www.youtube.com/embed/r__AgvTZ7Cg"
+            },
+            '100111': {
+                message: "큰 장애물을 극복하세요.",
+                videoUrl: "https://www.youtube.com/embed/82wH8w023Yc"
+            },
+            '100001': {
+                message: "말과 음식을 조심하세요.",
+                videoUrl: "https://www.youtube.com/embed/A-ukeNOnyT4"
+            },
+            '011110': {
+                message: "매우 위태롭습니다.",
+                videoUrl: "https://www.youtube.com/embed/FjCnvW-3HuQ"
+            },
+            '010010': {
+                message: "바닥을 치는 상태네요.",
+                videoUrl: "https://www.youtube.com/embed/Vl4d--fnao4"
+            },
+            '101101': {
+                message: "마음고민이 많으시네요.",
+                videoUrl: "https://www.youtube.com/embed/Tua31ILwyKo"
+            },
+            '011100': {
+                message: "유대관계가 좋네요.",
+                videoUrl: "https://www.youtube.com/embed/LzdQpGTT92I"
+            },
+            '001110': {
+                message: "바쁘게 움직이세요.",
+                videoUrl: "https://www.youtube.com/embed/2GbyRDxf5dA"
+            },
+            '111100': {
+                message: "하던일을 멈추세요.",
+                videoUrl: "https://www.youtube.com/embed/aL2ghnm7Xig"
+            },
+            '001111': {
+                message: "큰 명예가 있지만...",
+                videoUrl: "https://www.youtube.com/embed/ddqVT56y39M"
+            },
+            '101000': {
+                message: "전진하세요.",
+                videoUrl: "https://www.youtube.com/embed/-v4Hj5yHBZ4"
+            },
+            '000101': {
+                message: "동트기 전이 가장 어두워요.",
+                videoUrl: "https://www.youtube.com/embed/jBFCIf3zIE4"
+            },
+            '110101': {
+                message: "화합이 중요해요.",
+                videoUrl: "https://www.youtube.com/embed/8hd4-g1rzY4"
+            },
+            '101011': {
+                message: "차이점을 극복하세요.",
+                videoUrl: "https://www.youtube.com/embed/MzaGtwJdXVw"
+            },
+            '010100': {
+                message: "난감한 상황이네요.",
+                videoUrl: "https://www.youtube.com/embed/G8uv5db3m6k"
+            },
+            '001010': {
+                message: "어려움이 해결되네요.",
+                videoUrl: "https://www.youtube.com/embed/Byrpq1MD7ms"
+            },
+            '100011': {
+                message: "과감하게 손해를 보세요.",
+                videoUrl: "https://www.youtube.com/embed/vazyZDUgzI8"
+            },
+            '110001': {
+                message: "큰 이익을 얻지만...",
+                videoUrl: "https://www.youtube.com/embed/wnG8iZfHvII"
+            },
+            '011111': {
+                message: "결단이 필요해요.",
+                videoUrl: "https://www.youtube.com/embed/qc1lebuaeSM"
+            },
+            '111110': {
+                message: "우연한 만남을 경계하세요.",
+                videoUrl: "https://www.youtube.com/embed/-zvXeXJ6eTo"
+            },
+            '011000': {
+                message: "만사형통입니다.",
+                videoUrl: "https://www.youtube.com/embed/QnDd4LZRe5g"
+            },
+            '000110': {
+                message: "상승운입니다.",
+                videoUrl: "https://www.youtube.com/embed/xDb5hAd9q8I"
+            },
+            '011010': {
+                message: "아주 곤란한 상황이네요.",
+                videoUrl: "https://www.youtube.com/embed/bnPbbVUe7Qs"
+            },
+            '010110': {
+                message: "협력을 하면 대박이예요.",
+                videoUrl: "https://www.youtube.com/embed/VNz-ULLk7z8"
+            },
+            '011101': {
+                message: "큰 변화가 있습니다.",
+                videoUrl: "https://www.youtube.com/embed/5PGEI1KKgK8"
+            },
+            '101110': {
+                message: "행운이 찾아오네요.",
+                videoUrl: "https://www.youtube.com/embed/3hhOD135VbY"
+            },
+            '001001': {
+                message: "열심히 활동하세요.",
+                videoUrl: "https://www.youtube.com/embed/U2v9C81N-zo"
+            },
+            '100100': {
+                message: "자신을 뒤돌아보세요.",
+                videoUrl: "https://www.youtube.com/embed/3X4t6Hd5BPI"
+            },
+            '110100': {
+                message: "점점 좋아집니다.",
+                videoUrl: "https://www.youtube.com/embed/1vKKtZX5u4I"
+            },
+            '001011': {
+                message: "타인과 협력하세요.",
+                videoUrl: "https://www.youtube.com/embed/C0YBCHCqwCU"
+            },
+            '001101': {
+                message: "재물이 풍요롭지만...",
+                videoUrl: "https://www.youtube.com/embed/Znx_ehoSKKA"
+            },
+            '101100': {
+                message: "지친 나그네 신세네요.",
+                videoUrl: "https://www.youtube.com/embed/arDfuVd5zOI"
+            },
+            '110110': {
+                message: "바쁘기만 하군요.",
+                videoUrl: "https://www.youtube.com/embed/NM7GwbDptJI"
+            },
+            '011011': {
+                message: "큰 고비를 넘겨야 해요.",
+                videoUrl: "https://www.youtube.com/embed/rPKzseDnNr0"
+            },
+            '110010': {
+                message: "고민을 버리세요.",
+                videoUrl: "https://www.youtube.com/embed/TTXy0s52_ZU"
+            },
+            '010011': {
+                message: "절제해야 합니다.",
+                videoUrl: "https://www.youtube.com/embed/ff90NkG0LA0"
+            },
+            '110011': {
+                message: "진심으로 행동하세요.",
+                videoUrl: "https://www.youtube.com/embed/gw0pTRUC0pQ"
+            },
+            '001100': {
+                message: "과한 것을 경계하세요.",
+                videoUrl: "https://www.youtube.com/embed/Nz8dX1X1wPY"
+            },
+            '010101': {
+                message: "노력한 결실이 있습니다.",
+                videoUrl: "https://www.youtube.com/embed/inSNcsZ7UMQ"
+            },
+            '101010': {
+                message: "아직까지 결실이 없는 상태군요.",
+                videoUrl: "https://www.youtube.com/embed/mXUZ7O6xR2k"
+            }
         };
-
         const imageUrls = [
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/01.jpeg',
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/02.jpeg',
@@ -326,6 +509,7 @@
             'https://raw.githubusercontent.com/utopiaocto/ichingview/main/64.jpeg',
         ];
 
+        // 무작위 이진값 생성 함수
         function generateRandomBinaryValue() {
             const binary_values = ['111', '011', '101', '001', '110', '010', '100', '000'];
             const first_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
@@ -333,7 +517,7 @@
             return first_digit + second_digit;
         }
 
-        
+        // 이미지 URL 가져오는 함수
         function getImageUrl(binary_value) {
             const korean_value0 = korean_values0[binary_value];
             if (korean_value0) {
@@ -349,29 +533,16 @@
             return 'https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg';
         }
 
+
+        // 운세를 표시하는 함수
         function showFortune() {
             const binary_value = generateRandomBinaryValue();
             const fortuneText = korean_values[binary_value];
-            const iframePattern = /<iframe[\s\S]*?<\/iframe>/; // Pattern to find iframe in the text
-    
-            // Replace iframe with responsive iframe
-            const responsiveIframe = fortuneText.replace(iframePattern, function(match) {
-                return `<div class="video-responsive">${match}</div>`;
-            });
-    
             document.querySelector('#output').innerHTML = '주역 64괘 중<br>' + korean_values0[binary_value] + '괘가 관측되었습니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
-            document.querySelector('#fortune').innerHTML = responsiveIframe +
-                '<br>' + // One line space above
-                '<a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>' +
-                '<br><br>' + // One line space below
-                '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 20px; font-weight: bold; color: black;">퀀텀옥토<br>전화문의 : 010-4305-8255<br>메일문의 : 8richfields@gmail.com</span>' +
-                '</div><br>' +
-                '<div style="background-color: black; color: white; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 15px; font-weight: bold; color: white;">본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.</span>' +
-                '</div>';
-    
+            document.querySelector('#fortune').innerHTML = fortuneText.message +
+                '<br><iframe src="' + fortuneText.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>' +
+                '<br><a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>';
             document.querySelector('.result').style.display = 'block';
         }
     </script>
