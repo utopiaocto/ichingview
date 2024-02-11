@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,10 +15,6 @@
             max-width: 600px;
         }
 
-        .result, .video-responsive {
-            display: none;
-        }
-
         .result {
             background-color: black;
             color: white;
@@ -27,11 +22,7 @@
             border-radius: 5px;
             padding: 8px;
             margin-top: 15px;
-        }
-
-        img {
-            max-width: 80%;
-            height: auto;
+            display: none; /* Initially hide the result */
         }
 
         #name {
@@ -59,7 +50,7 @@
 
         .video-responsive {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 70%; /* 16:9 aspect ratio */
             height: 0;
             overflow: hidden;
             margin-top: 20px;
@@ -78,18 +69,15 @@
 <body>
     <h3>여러분의 미래는</h3>
     <h4>퀀텀 진단을 통해 바꿀 수 있습니다.</h4>
-    <img id="initialImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.png" alt="I Ching image" />
     <h4>본 관측방법은 10여년동안 주역괘를 3만번 이상의 실전 활용 후, 양자물리학의 원리를 주역에 적용, 세계 최초의 퀀텀 주역 알고리즘으로 구현하였습니다.</h4>
     <input type="text" id="name" placeholder="여기에 사연을 적고, 아래 버튼을 누르세요">
     <button onclick="showFortune()">내 현재 관측하기</button>
     <div class="result">
         <h2 id="output"></h2>
-        <img id="resultImage" src="" alt="I Ching image" />
         <div id="fortune"></div>
         <a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>
     </div>
     <script>
-        // 데이터 객체 정의
         const korean_values0 = {
                 '111111': '01 건위천',
                 '000000': '02 곤위지',
@@ -162,26 +150,25 @@
             transformed_korean_values0[key] = korean_values0[key].split(' ')[0];
         }
 
-        console.log(transformed_korean_values0);
         const korean_values = {
             '111111': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "자신감을 경계하세요.",
                 videoUrl: "https://www.youtube.com/embed/1ZPNfTcq0qY"
             },
             '000000': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "모든 걸 수용하세요.",
                 videoUrl: "https://www.youtube.com/embed/lwto9rivxSo"
             },
             '010001': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "어려움을 극복하세요.",
                 videoUrl: "https://www.youtube.com/embed/H0CFfVTmk4Q"
             },
             '100010': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "공부에 힘쓰세요.",
                 videoUrl: "https://www.youtube.com/embed/JAbCtWMdWQw"
             },
             '010111': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "서둘지 마세요.",
                 videoUrl: "https://www.youtube.com/embed/j1eud6S0oWs"
             },
             '111010': {
@@ -189,35 +176,35 @@
                 videoUrl: "https://www.youtube.com/embed/Lt1E9S_ruXY"
             },
             '000010': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "리더쉽을 키우세요.",
                 videoUrl: "https://www.youtube.com/embed/KxvPJpIk0js"
             },
             '010000': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "팀워크를 키우세요.",
                 videoUrl: "https://www.youtube.com/embed/w_vbGlXWXFk"
             },
             '110111': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "작은 노력을 하세요.",
                 videoUrl: "https://www.youtube.com/embed/Q3GqZKRfQ1k"
             },
             '111011': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "정신을 바짝차리세요.",
                 videoUrl: "https://www.youtube.com/embed/LGHOp3Ds_ws"
             },
             '000111': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "새롭게 시작하세요.",
                 videoUrl: "https://www.youtube.com/embed/DtWmVtpf6wc"
             },
             '111000': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "어려움에 대비하세요.",
                 videoUrl: "https://www.youtube.com/embed/AnS0YAprpYc"
             },
             '111101': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "귀인을 찾아보세요.",
                 videoUrl: "https://www.youtube.com/embed/6Q04NWE7WD4"
             },
             '101111': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "밝은 마음을 가지세요.",
                 videoUrl: "https://www.youtube.com/embed/A7iH-hjsPSY"
             },
             '000100': {
@@ -225,270 +212,202 @@
                 videoUrl: "https://www.youtube.com/embed/JD07FNRrlZQ"
             },
             '001000': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "열정을 가지세요.",
                 videoUrl: "https://www.youtube.com/embed/KQZY_FJ__ao"
             },
             '011001': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "진심을 따르세요.",
                 videoUrl: "https://www.youtube.com/embed/WHB0pREeDwo"
             },
             '100110': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "건강을 조심하세요.",
                 videoUrl: "https://www.youtube.com/embed/wbPTvTJ6SxY"
             },
             '000011': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "현명한 접근을 하세요.",
                 videoUrl: "https://www.youtube.com/embed/M0dY7T0zlEw"
             },
             '110000': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "신중히 관망하세요.",
                 videoUrl: "https://www.youtube.com/embed/1InE2OrbV4E"
             },
             '101001': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "쓴소리가 필요합니다.",
                 videoUrl: "https://www.youtube.com/embed/GP_xhNrZdLI"
             },
             '100101': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "내실을 다지세요.",
                 videoUrl: "https://www.youtube.com/embed/33pBCb_fTNA"
             },
             '100000': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "성장통을 극복하세요.",
                 videoUrl: "https://www.youtube.com/embed/LUUWzTGhx8Q"
             },
             '000001': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "새롭게 시작하세요.",
                 videoUrl: "https://www.youtube.com/embed/bM28eEM1PIM"
             },
             '111001': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "논쟁은 피하세요.",
                 videoUrl: "https://www.youtube.com/embed/r__AgvTZ7Cg"
             },
             '100111': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "큰 장애물을 극복하세요.",
                 videoUrl: "https://www.youtube.com/embed/82wH8w023Yc"
             },
             '100001': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "말과 음식을 조심하세요.",
                 videoUrl: "https://www.youtube.com/embed/A-ukeNOnyT4"
             },
             '011110': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "매우 위태롭습니다.",
                 videoUrl: "https://www.youtube.com/embed/FjCnvW-3HuQ"
             },
             '010010': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "바닥을 치는 상태네요.",
                 videoUrl: "https://www.youtube.com/embed/Vl4d--fnao4"
             },
             '101101': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "마음고민이 많으시네요.",
                 videoUrl: "https://www.youtube.com/embed/Tua31ILwyKo"
             },
             '011100': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "유대관계가 좋네요.",
                 videoUrl: "https://www.youtube.com/embed/LzdQpGTT92I"
             },
             '001110': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "바쁘게 움직이세요.",
                 videoUrl: "https://www.youtube.com/embed/2GbyRDxf5dA"
             },
             '111100': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "하던일을 멈추세요.",
                 videoUrl: "https://www.youtube.com/embed/aL2ghnm7Xig"
             },
             '001111': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "큰 명예가 있지만...",
                 videoUrl: "https://www.youtube.com/embed/ddqVT56y39M"
             },
             '101000': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "전진하세요.",
                 videoUrl: "https://www.youtube.com/embed/-v4Hj5yHBZ4"
             },
             '000101': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "동트기 전이 가장 어두워요.",
                 videoUrl: "https://www.youtube.com/embed/jBFCIf3zIE4"
             },
             '110101': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "화합이 중요해요.",
                 videoUrl: "https://www.youtube.com/embed/8hd4-g1rzY4"
             },
             '101011': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "차이점을 극복하세요.",
                 videoUrl: "https://www.youtube.com/embed/MzaGtwJdXVw"
             },
             '010100': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "난감한 상황이네요.",
                 videoUrl: "https://www.youtube.com/embed/G8uv5db3m6k"
             },
             '001010': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "어려움이 해결되네요.",
                 videoUrl: "https://www.youtube.com/embed/Byrpq1MD7ms"
             },
             '100011': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "과감하게 손해를 보세요.",
                 videoUrl: "https://www.youtube.com/embed/vazyZDUgzI8"
             },
             '110001': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "큰 이익을 얻지만...",
                 videoUrl: "https://www.youtube.com/embed/wnG8iZfHvII"
             },
             '011111': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "결단이 필요해요.",
                 videoUrl: "https://www.youtube.com/embed/qc1lebuaeSM"
             },
             '111110': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "우연한 만남을 경계하세요.",
                 videoUrl: "https://www.youtube.com/embed/-zvXeXJ6eTo"
             },
             '011000': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "만사형통입니다.",
                 videoUrl: "https://www.youtube.com/embed/QnDd4LZRe5g"
             },
             '000110': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "상승운입니다.",
                 videoUrl: "https://www.youtube.com/embed/xDb5hAd9q8I"
             },
             '011010': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "아주 곤란한 상황이네요.",
                 videoUrl: "https://www.youtube.com/embed/bnPbbVUe7Qs"
             },
             '010110': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "협력을 하면 대박이예요.",
                 videoUrl: "https://www.youtube.com/embed/VNz-ULLk7z8"
             },
             '011101': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "큰 변화가 있습니다.",
                 videoUrl: "https://www.youtube.com/embed/5PGEI1KKgK8"
             },
             '101110': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "행운이 찾아오네요.",
                 videoUrl: "https://www.youtube.com/embed/3hhOD135VbY"
             },
             '001001': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "열심히 활동하세요.",
                 videoUrl: "https://www.youtube.com/embed/U2v9C81N-zo"
             },
             '100100': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "자신을 뒤돌아보세요.",
                 videoUrl: "https://www.youtube.com/embed/3X4t6Hd5BPI"
             },
             '110100': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "점점 좋아집니다.",
                 videoUrl: "https://www.youtube.com/embed/1vKKtZX5u4I"
             },
             '001011': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "타인과 협력하세요.",
                 videoUrl: "https://www.youtube.com/embed/C0YBCHCqwCU"
             },
             '001101': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "재물이 풍요롭지만...",
                 videoUrl: "https://www.youtube.com/embed/Znx_ehoSKKA"
             },
             '101100': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "지친 나그네 신세네요.",
                 videoUrl: "https://www.youtube.com/embed/arDfuVd5zOI"
             },
             '110110': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "바쁘기만 하군요.",
                 videoUrl: "https://www.youtube.com/embed/NM7GwbDptJI"
             },
             '011011': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "큰 고비를 넘겨야 해요.",
                 videoUrl: "https://www.youtube.com/embed/rPKzseDnNr0"
             },
             '110010': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "고민을 버리세요.",
                 videoUrl: "https://www.youtube.com/embed/TTXy0s52_ZU"
             },
             '010011': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "절제해야 합니다.",
                 videoUrl: "https://www.youtube.com/embed/ff90NkG0LA0"
             },
             '110011': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "진심으로 행동하세요.",
                 videoUrl: "https://www.youtube.com/embed/gw0pTRUC0pQ"
             },
             '001100': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "과한 것을 경계하세요.",
                 videoUrl: "https://www.youtube.com/embed/Nz8dX1X1wPY"
             },
             '010101': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "노력한 결실이 있습니다.",
                 videoUrl: "https://www.youtube.com/embed/inSNcsZ7UMQ"
             },
             '101010': {
-                message: "영상에서 답을 찾으세요."<br><br>,
+                message: "아직까지 결실이 없는 상태군요.",
                 videoUrl: "https://www.youtube.com/embed/mXUZ7O6xR2k"
             }
         };
-        const imageUrls = [
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/01.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/02.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/03.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/04.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/05.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/06.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/07.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/08.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/09.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/10.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/11.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/12.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/13.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/14.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/15.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/16.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/17.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/18.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/19.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/20.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/21.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/22.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/23.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/24.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/25.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/26.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/27.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/28.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/29.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/30.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/31.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/32.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/33.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/34.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/35.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/36.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/37.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/38.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/39.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/40.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/41.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/42.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/43.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/44.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/45.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/46.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/47.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/48.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/49.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/50.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/51.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/52.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/53.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/54.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/55.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/56.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/57.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/58.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/59.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/60.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/61.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/62.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/63.jpeg',
-            'https://raw.githubusercontent.com/utopiaocto/ichingview/main/64.jpeg',
-        ];
-
-        // 무작위 이진값 생성 함수
         function generateRandomBinaryValue() {
             const binary_values = ['111', '011', '101', '001', '110', '010', '100', '000'];
             const first_digit = binary_values[Math.floor(Math.random() * binary_values.length)];
@@ -496,46 +415,20 @@
             return first_digit + second_digit;
         }
 
-        
-        function getImageUrl(binary_value) {
-            const korean_value0 = korean_values0[binary_value];
-            if (korean_value0) {
-                const split_values = korean_value0.split(' ');
-                if (split_values.length > 1) {
-                    const image_number_str = split_values[0];
-                    if (/^\d+$/.test(image_number_str)) { // 숫자로만 구성된 문자열인지 확인
-                        const image_number = parseInt(image_number_str);
-                        return imageUrls[image_number - 1];
-                    }
-                }
-            }
-            return 'https://raw.githubusercontent.com/utopiaocto/ichingview/main/00.jpeg';
-        }
-
         function showFortune() {
             const binary_value = generateRandomBinaryValue();
-            const fortuneText = korean_values[binary_value];
-            const iframePattern = /<iframe[\s\S]*?<\/iframe>/; // Pattern to find iframe in the text
-    
-            // Replace iframe with responsive iframe
-            const responsiveIframe = fortuneText.replace(iframePattern, function(match) {
-                return `<div class="video-responsive">${match}</div>`;
-            });
-    
-            document.querySelector('#output').innerHTML = '주역 64괘 중<br>' + korean_values0[binary_value] + '괘가 관측되었습니다.';
-            document.querySelector('#image').src = getImageUrl(binary_value);
-            document.querySelector('#fortune').innerHTML = responsiveIframe +
-                '<br>' + // One line space above
-                '<a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>' +
-                '<br><br>' + // One line space below
-                '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 20px; font-weight: bold; color: black;">퀀텀옥토<br>전화문의 : 010-4305-8255<br>메일문의 : 8richfields@gmail.com</span>' +
-                '</div><br>' +
-                '<div style="background-color: black; color: white; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 15px; font-weight: bold; color: white;">본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.</span>' +
-                '</div>';
-    
-            document.querySelector('.result').style.display = 'block';
+            const fortuneData = korean_values[binary_value];
+
+            if (fortuneData) {
+                const outputElement = document.querySelector('#output');
+                const fortuneElement = document.querySelector('#fortune');
+                const resultElement = document.querySelector('.result');
+
+                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '괘가 관측되었습니다.';
+                fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+                
+                resultElement.style.display = 'block';
+            }
         }
     </script>
 </body>
