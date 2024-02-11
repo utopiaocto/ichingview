@@ -24,7 +24,7 @@
             display: none;
             background-color: black;
             padding: 8px;
-            border: 2px solid #ddd; /* 오른쪽 선이 표시되도록 border 스타일 수정 */
+            border: 2px solid #ddd;
             border-radius: 5px;
             margin-top: 15px;
             color: white;
@@ -81,6 +81,22 @@
         .future-button:hover {
             background-color: darkgreen;
         }
+
+        /* Add CSS for responsive iframes */
+        .video-responsive {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body style="text-align: center; padding-left: 7px; padding-right: 7px;">
@@ -91,16 +107,13 @@
     <input type="text" id="name" placeholder="여기에 사연을 적고, 아래 버튼을 누르세요" style="text-align: center;">
     <p></p>
     <button onclick="showFortune()">내 현재 관측하기</button>
-    <style>
-        .result {
-            margin-bottom: 1em; /* 원하는 크기의 간격 조절 */
-        }
-    </style>
     <div class="result">
         <h2 id="output"></h2>
         <a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>
-        <br> <!-- 여기에 공백을 추가하기 위해 <br> 태그를 사용합니다. -->
-        <img id="image" src="" alt="I Ching image" />
+        <br>
+        <img id="
+
+image" src="" alt="I Ching image" />
         <p id="fortune"></p>
     </div>
 
@@ -339,29 +352,29 @@
 
         function showFortune() {
             const binary_value = generateRandomBinaryValue();
-            const korean_value = korean_values[binary_value]; // 이 값은 이미 적절히 설정되어 있음
-
-            // 반응형 디자인을 위한 video-responsive div 추가
-            const responsiveIframe = korean_value.replace("<iframe", "<div class='video-responsive'><iframe").replace("</iframe>", "</iframe></div>");
-
+            const fortuneText = korean_values[binary_value];
+            const iframePattern = /<iframe[\s\S]*?<\/iframe>/; // Pattern to find iframe in the text
+    
+            // Replace iframe with responsive iframe
+            const responsiveIframe = fortuneText.replace(iframePattern, function(match) {
+                return `<div class="video-responsive">${match}</div>`;
+            });
+    
             document.querySelector('#output').innerHTML = '주역 64괘 중<br>' + korean_values0[binary_value] + '괘가 관측되었습니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
-            document.querySelector('#fortune').innerHTML = responsiveIframe + // 이제 반응형 iframe을 포함하는 HTML을 사용
+            document.querySelector('#fortune').innerHTML = responsiveIframe +
+                '<br>' + // One line space above
+                '<a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>' +
+                '<br><br>' + // One line space below
                 '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 20px; font-weight: bold; color: black;">' +
-                '퀀텀옥토<br>' +
-                '전화문의 : 010-4305-8255<br>' +
-                '메일문의 : 8richfields@gmail.com<br>' +
-                '</div>' +
-                '<br>' +
+                '<span style="font-size: 20px; font-weight: bold; color: black;">퀀텀옥토<br>전화문의 : 010-4305-8255<br>메일문의 : 8richfields@gmail.com</span>' +
+                '</div><br>' +
                 '<div style="background-color: black; color: white; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 15px; font-weight: bold; color: white;">' +
-                '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br>' +
+                '<span style="font-size: 15px; font-weight: bold; color: white;">본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.</span>' +
                 '</div>';
-
+    
             document.querySelector('.result').style.display = 'block';
         }
-
     </script>
 </body>
 </html>
