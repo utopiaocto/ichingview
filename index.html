@@ -424,7 +424,8 @@
                 const fortuneElement = document.querySelector('#fortune');
                 const resultElement = document.querySelector('.result');
         
-                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '괘가 관측되었습니다.';
+                // 여기에서 문자열 결합을 사용하여 HTML 콘텐츠를 동적으로 생성합니다.
+                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '괘가 관측되었습니다.<br><br>' + '동영상으로 해석보기<br><br>';
                 fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
                     '</div>' +
                     '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
