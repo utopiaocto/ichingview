@@ -424,18 +424,20 @@
                 const fortuneElement = document.querySelector('#fortune');
                 const resultElement = document.querySelector('.result');
         
-                // 여기에서 문자열 결합을 사용하여 HTML 콘텐츠를 동적으로 생성합니다.
                 outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '괘가 관측되었습니다.<br><br>' + '동영상으로 해석보기<br><br>';
+        
                 fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
+                    '<br><br>' + // 동영상 아래 한 줄 띄우기
+                    '<a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>' +
                     '</div>' +
-                    '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
+                    '<div style="background-color: white; color: black; padding: 10px; margin-top: 20px;">' + // 상단 여백 추가
                     '<span style="font-size: 20px; font-weight: bold; color: black;">' +
                     '퀀텀옥토<br>' +
                     '전화문의 : 010-4305-8255<br>' +
                     '메일문의 : 8richfields@gmail.com<br>' +
                     '</div>' +
                     '<br>' +
-                    '<div style="background-color: black; color: white; padding: 10px; margin: 0px;">' +
+                    '<div style="background-color: black; color: white; padding: 10px; margin-top: 20px;">' + // 상단 여백 추가
                     '<span style="font-size: 15px; font-weight: bold; color: white;">' +
                     '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br>' +
                     '</div>';
@@ -443,6 +445,7 @@
                 resultElement.style.display = 'block';
             }
         }
+
     </script>
 </body>
 </html>
