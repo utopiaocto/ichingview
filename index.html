@@ -339,18 +339,14 @@
 
         function showFortune() {
             const binary_value = generateRandomBinaryValue();
-            const korean_value0 = korean_values0[binary_value];
-            const korean_value = korean_values[binary_value];
+            const korean_value = korean_values[binary_value]; // 이 값은 이미 적절히 설정되어 있음
 
-            document.querySelector('#output').innerHTML = '주역 64괘 중<br>' + korean_value0 + '괘가 관측되었습니다.';
+            // 반응형 디자인을 위한 video-responsive div 추가
+            const responsiveIframe = korean_value.replace("<iframe", "<div class='video-responsive'><iframe").replace("</iframe>", "</iframe></div>");
+
+            document.querySelector('#output').innerHTML = '주역 64괘 중<br>' + korean_values0[binary_value] + '괘가 관측되었습니다.';
             document.querySelector('#image').src = getImageUrl(binary_value);
-            document.querySelector('#fortune').innerHTML =
-                '<div style="background-color: yellow; color: black; padding: 10px; margin: 0px;">' +
-                '<span style="font-size: 25px; font-weight: bold; color: black;">나의 현재운 진단결과</span><br>' +
-                '</div>' +
-                '<div style="background-color: green; color: white; padding: 10px; margin: 0px;">' +
-                '<br><span style="font-size: 20px; font-weight: bold; color: white;">' + korean_value + '</span>' +
-                '</div>' +
+            document.querySelector('#fortune').innerHTML = responsiveIframe + // 이제 반응형 iframe을 포함하는 HTML을 사용
                 '<div style="background-color: white; color: black; padding: 10px; margin: 0px;">' +
                 '<span style="font-size: 20px; font-weight: bold; color: black;">' +
                 '퀀텀옥토<br>' +
@@ -365,6 +361,7 @@
 
             document.querySelector('.result').style.display = 'block';
         }
+
     </script>
 </body>
 </html>
