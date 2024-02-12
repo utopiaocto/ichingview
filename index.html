@@ -26,9 +26,9 @@
         }
 
         #name {
-            font-size: 16px;
+            font-size: 18px;
             width: 90%;
-            margin: 10px auto;
+            margin: 0px auto;
         }
 
         button, .future-button {
@@ -42,6 +42,7 @@
             margin-top: 20px;
             text-transform: uppercase;
             width: 70%;
+            text-decoration: none;         
         }
 
         button:hover, .future-button:hover {
@@ -424,11 +425,11 @@
                 const fortuneElement = document.querySelector('#fortune');
                 const resultElement = document.querySelector('.result');
         
-                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' + '⇩⇩ 운세동영상 해석보기 ⇩⇩<br>';
+                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' + '⇩⇩ 운세해석 자세히 보기 ⇩⇩<br>';
         
                 fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
                     '<br><br>' + // 동영상 아래 한 줄 띄우기
-                    '<a href="https://litt.ly/quantumiching" target="_blank" class="future-button">자세한 처방전 받기</a>' +
+                    '<a href="https://litt.ly/quantumiching" target="_blank" class="future-button" style="text-decoration: none;">자세한 처방전 받기</a>' +
                     '</div>' +
                     '<div style="background-color: yellow; color: black; padding: 10px; margin-top: 20px;">' + // 상단 여백 추가
                     '<span style="font-size: 20px; font-weight: bold; color: black;">' +
