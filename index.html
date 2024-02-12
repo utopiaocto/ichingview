@@ -13,15 +13,13 @@
             margin: 0 auto;
             padding: 0 10px;
             max-width: 600px;
-            border: 2px solid #ddd; /* 외곽선 추가 */
-            border-radius: 5px; /* 모서리 둥글게 */
-            font-weight: bold; /* 글자 굵게 설정 */
+            border: 2px solid yellow; /* 외곽선 색깔을 노랑으로 변경 */
+            border-radius: 5px;
         }
-        
         .result {
             background-color: black;
             color: white;
-            border: 2px solid #ddd;
+            border: 2px solid #90EE90; /* 외곽선 색상을 밝은 초록색으로 변경 */
             border-radius: 5px;
             padding: 8px;
             margin-top: 15px;
@@ -429,7 +427,7 @@
                 const fortuneElement = document.querySelector('#fortune');
                 const resultElement = document.querySelector('.result');
         
-                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' + '⇩⇩ 운세해석 자세히 보기 ⇩⇩<br>';
+                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' + '<span style="color: goldenrod;">⇩⇩ 운세해석 자세히 보기 ⇩⇩</span><br>';
         
                 fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
                     '<br><br>' + // 동영상 아래 한 줄 띄우기
