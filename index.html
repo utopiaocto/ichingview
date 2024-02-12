@@ -432,7 +432,8 @@
                 const fortuneElement = document.querySelector('#fortune');
                 const resultElement = document.querySelector('.result');
             
-                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' + '<span style="color: goldenrod;">⇩⇩ 운세해석 자세히 보기 ⇩⇩</span><br>';
+                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' + '<span style="color: goldenrod;">⇩⇩ 운세해석 자세히 보기 ⇩⇩</span><br>' +'<hr style="border-top: 2px solid white; margin-top: 10px;">'; // 선 추가
+
                 fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
                     '<br><br>' + // 동영상 아래 한 줄 띄우기
                     '<div style="border-top: 2px solid white; text-align: center;">' +
