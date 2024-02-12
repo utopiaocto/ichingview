@@ -16,7 +16,7 @@
             margin: 0 auto;
             padding: 0 5px;
             max-width: 600px;
-            border: 3px solid goldenrod; /* 외곽선 색깔 */
+            border: 5px solid goldenrod; /* 외곽선 색깔 */
             border-radius: 5px;
             background-color: black; /* 바디 내부 배경색 검정 */
         }
@@ -24,7 +24,7 @@
         .result {
             background-color: black; /* 결과 영역 배경색 검정 */
             color: white; /* 결과 영역 글자색 흰색 */
-            border: 3px solid white; /* 외곽선 색상 */
+            border: 5px solid white; /* 외곽선 색상 */
             border-radius: 5px;
             padding: 0px;
             margin-top: 10px;
@@ -435,20 +435,20 @@
                 outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' + '<span style="color: goldenrod;">⇩⇩ 운세해석 자세히 보기 ⇩⇩</span><br>' +'<hr style="border-top: 2px solid white; margin-top: 10px;">'; // 선 추가
 
                 fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
-                    '<br><br>' + // 동영상 아래 한 줄 띄우기
+                    '<br>' + // 동영상 아래 한 줄 띄우기
                     '<div style="border-top: 2px solid white; text-align: center;">' +
                         '<a href="https://litt.ly/quantumiching" target="_blank" class="future-button" style="text-decoration: none; font-weight: bold;">자세한 처방전 받기</a>' +
                     '</div>' +
-                    '<div style="background-color: yellow; color: black; padding: 5px; margin-top: 20px;">' + // 상단 여백 추가
+                    '<div style="background-color: yellow; color: black; padding: 5px; margin-top: 10px;">' + // 상단 여백 추가
                     '<span style="font-size: 20px; font-weight: bold; color: black;">' +
                     '퀀텀옥토<br>' +
                     '전화문의 : 010-4305-8255<br>' +
-                    '메일문의 : 8richfields@gmail.com<br>' +
+                    '메일문의 : 8richfields@gmail.com<br><br>' +
                     '</div>' +
                     '<br>' +
-                    '<div style="background-color: black; color: yellow; padding: 0px; margin-top: 20px;">' + // 상단 여백 추가
+                    '<div style="background-color: black; color: yellow; padding: 0px; margin-top: 30px;">' + // 상단 여백 추가
                     '<span style="font-size: 15px; font-weight: bold; color: white;">' +
-                    '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br>' +
+                    '본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br><br><br>' +
                     '</div>';
             
                 resultElement.style.display = 'block';
