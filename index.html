@@ -7,7 +7,6 @@
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: black;
             color: white;
             text-align: center;
             margin: 0 auto;
@@ -15,15 +14,24 @@
             max-width: 600px;
             border: 2px solid yellow; /* 외곽선 색깔을 노랑으로 변경 */
             border-radius: 5px;
+            background-color: black; /* 기본 배경색 검정 */
         }
+    
+        @media (min-width: 600px) {
+            body {
+                background-color: white; /* 화면 너비가 600px 이상일 때 배경색 흰색으로 변경 */
+                color: black; /* 화면 너비가 600px 이상일 때 글자색 검정으로 변경 */
+            }
+        }
+    
         .result {
-            background-color: black;
-            color: white;
-            border: 2px solid #90EE90; /* 외곽선 색상을 밝은 초록색으로 변경 */
+            background-color: black; /* 결과 영역 배경색 검정 */
+            color: white; /* 결과 영역 글자색 흰색 */
+            border: 2px solid #90EE90; /* 결과 영역 외곽선 색상 밝은 초록색으로 변경 */
             border-radius: 5px;
             padding: 8px;
             margin-top: 15px;
-            display: none; /* Initially hide the result */
+            display: none; /* 결과 영역 초기에 숨김 */
         }
 
         #name {
