@@ -430,23 +430,33 @@
                 const fortuneElement = document.querySelector('#fortune');
                 const resultElement = document.querySelector('.result');
             
-                outputElement.innerHTML = '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' + '<span style="color: goldenrod;">⇩⇩ 운세해석 자세히 보기 ⇩⇩</span><br>' +'<hr style="border-top: 2px solid white; margin-top: 10px;">'; // 선 추가
-
+                // 첫 번째 이미지 추가
+                const firstImageHTML = '<img id="firstImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/300.png" alt="First I Ching image" style="width: 100%; max-width: 100px; height: auto;" />';
+                // 두 번째 이미지 추가
+                const secondImageHTML = '<img id="secondImage" src="https://raw.githubusercontent.com/utopiaocto/ichingview/main/100.png" alt="Second I Ching image" style="width: 100%; max-width: 100px; height: auto;" />';
+                
+                outputElement.innerHTML = firstImageHTML + // 첫 번째 이미지 삽입
+                    '주역 64괘 중<br>' + transformed_korean_values0[binary_value] + '번 괘가 관측되었습니다.<br><br>' +
+                    '<span style="color: goldenrod;">⇩⇩ 운세해석 자세히 보기 ⇩⇩</span><br>' +
+                    '<hr style="border-top: 2px solid white; margin-top: 10px;">';
+            
                 fortuneElement.innerHTML = '<div class="video-responsive"><iframe src="' + fortuneData.videoUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
                     '<br>' + // 동영상 아래 한 줄 띄우기
                     '<div style="border-top: 2px solid white; text-align: center;">' +
                         '<a href="https://litt.ly/quantumiching" target="_blank" class="future-button" style="text-decoration: none; font-weight: bold;">자세한 해석책 구매하기</a>' + 
                     '</div>' +
-                    '<div style="background-color: yellow; color: black; padding: 5px; margin-top: 25px;">' + // 상단 여백 추가
-                    '<span style="font-size: 18px; font-weight: bold; color: black;">' +
-                    '<br>퀀텀옥토<br>' +
-                    '전화문의 : 010-4305-8255<br>' +
-                    '메일문의 : 8richfields@gmail.com<br>' +
+                    secondImageHTML + // 두 번째 이미지 삽입
+                    '<div style="background-color: yellow; color: black; padding: 5px; margin-top: 25px;">' +
+                        '<span style="font-size: 18px; font-weight: bold; color: black;">' +
+                        '퀀텀옥토<br>' +
+                        '전화문의 : 010-4305-8255<br>' +
+                        '메일문의 : 8richfields@gmail.com<br>' +
+                        '</div>' +
                     '</div>' +
                     '<br>' +
-                    '<div style="background-color: black; color: yellow; padding: 0px; margin-top: 30px;">' + // 상단 여백 추가
-                    '<span style="font-size: 13px; font-weight: bold; color: white;">' +
-                    '🔮 본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br><br><br>' +
+                    '<div style="background-color: black; color: yellow; padding: 0px; margin-top: 30px;">' +
+                        '<span style="font-size: 13px; font-weight: bold; color: white;">' +
+                        '🔮 본 프로그램, 사진, 저작물은 저작권(C-2023-022846)으로 등록되어 있습니다. 허락없이 사용시 저작권법에 따라 법적 처벌됩니다.<br><br><br>' +
                     '</div>';
             
                 resultElement.style.display = 'block';
